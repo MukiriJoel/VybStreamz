@@ -16,6 +16,9 @@ export default function PlanSelection() {
     { id: 1, name: "Baze Daily Access only Autorenewal @Ksh 10" },
     { id: 2, name: "Baze Daily Access only Autorenewal @Ksh 10" },
   ]
+  // const handleAddToCart = () =>{
+  //   router.push("/payment")
+  // }
 
   return (
     <>
@@ -72,6 +75,7 @@ export default function PlanSelection() {
           Buy Now
         </Button>
         <Button
+        onClick={() => router.push('/addtocart')}
           variant="outline"
           className="flex-1 bg-[#2c2c2c] hover:bg-[#333333] dark:bg-[#999999] text-[#ffffff] border-[#2c2c2c] font-semibold py-3 px-6 rounded-lg"
         >

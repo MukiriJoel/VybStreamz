@@ -1,10 +1,16 @@
 import React from "react";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { FaPlayCircle } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 const Billboard = () => {
+    const router = useRouter()
     const youtubeVideoId = "RARtsWwvxAk"; // Extract ID from your YouTube URL
     const youtubeEmbedUrl = "https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1&enablejsapi=1&origin=${window.location.origin}";
+
+    const handlePlay = () =>{
+        router.push("/videos/5")
+    }
     return(
         <div className="relative h-[56.25vw]">
             <iframe
@@ -44,9 +50,10 @@ const Billboard = () => {
                 </p>
                 <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
                     <button 
+                    onClick={handlePlay}
                         className="
-                            bg-white dark:bg-[#2C2C2C]
-                            text-black dark:text-white
+                            bg-white
+                            text-black
                             rounded-md
                             py-1 md:py-2
                             px-2 md:px-4
@@ -58,14 +65,16 @@ const Billboard = () => {
                             items-center
                             hover:bg-opacity-20
                             transition
+                            cursor-pointer
                         "
                     >
                         <FaPlayCircle className="mr-1" />
                         Play
                     </button>
                     <button 
+                    onClick={handlePlay}
                         className="
-                            bg-white dark:bg-[#2C2C2C]/30
+                            bg-white/30
                             text-white
                             rounded-md
                             py-1 md:py-2
@@ -78,6 +87,7 @@ const Billboard = () => {
                             items-center
                             hover:bg-opacity-20
                             transition
+                            cursor-pointer
                         "
                     >
                         <IoIosInformationCircleOutline className="mr-1" />

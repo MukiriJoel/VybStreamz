@@ -15,6 +15,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRef, useState } from "react";
 import CarouselDots from "./CarouselDots";
+import { useRouter } from "next/navigation";
+
 
 export interface ICarousel {
   id: number;
@@ -40,7 +42,7 @@ const VybzCarouselMusic = ({
   slides = [],
   delay = 4000,
 }:VybzCarouselMusicProps) => {
-  
+  const router  = useRouter()
   const sliderRef = useRef<Slider>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -145,6 +147,10 @@ const VybzCarouselMusic = ({
     );
   };
 
+  const handleMusicSubscription = () =>{
+    router.push("/planselection")
+  }
+
   return (
     <>
       <div className="relative h-[80vh] w-full overflow-hidden">
@@ -233,7 +239,9 @@ const VybzCarouselMusic = ({
 
                   {/* Action Buttons */}
                   <div className="flex gap-4 mx-auto md:mx-0">
-                    <Button className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
+                    <Button 
+                    onClick={handleMusicSubscription}
+                    className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
                       Subscribe
                     </Button>
                     <Button
