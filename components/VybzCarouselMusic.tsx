@@ -17,7 +17,6 @@ import { useRef, useState } from "react";
 import CarouselDots from "./CarouselDots";
 import { useRouter } from "next/navigation";
 
-
 export interface ICarousel {
   id: number;
   title: string;
@@ -147,21 +146,24 @@ const VybzCarouselMusic = ({
     );
   };
 
-  const handleMusicSubscription = () =>{
-    router.push("/planselection")
-  }
+  const router = useRouter();
+      
+      const onSubscribeClick = () =>{
+           router.push(`/planselection/`);
+        }
+  
 
   return (
     <>
-      <div className="relative h-[80vh] w-full overflow-hidden">
+      <div className="relative h-[90vh] w-full overflow-hidden">
         <Slider
           {...settings}
           ref={sliderRef}
           beforeChange={(_, next) => setActiveIndex(next)}
-          className="w-screen h-[80vh]"
+          className="w-screen h-[90vh]"
         >
           {slidesToRender.map((slide, index) => (
-            <div key={index} className="relative h-[80vh] w-screen">
+            <div key={index} className="relative h-[90vh] w-screen">
               {/* Background Cover Image with Overlay */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -173,15 +175,15 @@ const VybzCarouselMusic = ({
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-10 h-full flex flex-col justify-end">
+              <div className="relative z-10 pb-15 px-8 h-full flex flex-col justify-end">
                 <div className="p-8 pb-6">
                   <div className="flex flex-wrap items-end gap-6 mb-8">
                     {/* Album Cover */}
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 flex items-center w-35 h-50 overflow-hidden">
                       <img
                         src={slide.cover}
                         alt="DISKO Cover"
-                        className="w-30 h-40 rounded-lg object-cover shadow-lg"
+                        className="w-full h-full rounded-lg object-cover shadow-lg"
                       />
                     </div>
 
@@ -192,16 +194,16 @@ const VybzCarouselMusic = ({
                         <h1 className="text-[28px] font-extrabold text-white capitalize leading-tight">
                           {slide.title}
                         </h1>
-                        <p className="text-white text-[22px] !font-normal leading-tight capitalize">
+                        <p className="text-white text-[22px] mt-2 !font-normal leading-tight capitalize">
                           {slide.subtitle}
                         </p>
-                        <p className="text-white text-[12px] mt-1">
+                        <p className="text-white text-[12px] mt-2">
                           {slide.category} | {slide.duration} | {slide.tracks} | {slide.genre}
                         </p>
                       </div>
 
                       {/* Stream On and Controls Row */}
-                      <div className="flex flex-wrap justify-between items-end w-full">
+                      <div className="flex flex-wrap justify-between items-end py-2 w-full">
                         {/* Stream On Section */}
                         <div className="flex items-center mb-2">
                           <p className="text-white text-[14px] uppercase tracking-wide mr-3">
@@ -218,7 +220,7 @@ const VybzCarouselMusic = ({
                         <div className="flex flex-col flex-wrap items-end gap-4">
                           {/* Audio/Video Controls */}
                           <div className="flex items-center gap-3">
-                            <Button className="bg-[#2C2C2C] hover:bg-white dark:bg-[#2C2C2C]/20 text-white px-4 py-2 rounded-[5px] text-xs backdrop-blur-sm border border-white/10 cursor-pointer">
+                            <Button className="bg-[#2C2C2C] hover:bg-white dark:bg-[#2C2C2C] text-white px-4 py-2 rounded-[5px] text-xs backdrop-blur-sm border border-white/10 cursor-pointer">
                               <MdOutlineVideocam className="mr-1" />
                               Switch To Video
                             </Button>
@@ -238,36 +240,33 @@ const VybzCarouselMusic = ({
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-4 mx-auto md:mx-0">
-                    <Button 
-                    onClick={handleMusicSubscription}
-                    className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
-                      Subscribe
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="border-white/20 text-xs text-white hover:bg-white dark:bg-[#2C2C2C]/20 hover:text-white px-6 h-10 rounded-full bg-[#2C2C2C] backdrop-blur-sm w-40 cursor-pointer"
-                    >
-                      <Bookmark className="h-4 w-4 mr-2" />
-                      Save
-                    </Button>
-                  </div>
+                   {/* Action Buttons */}
+              <div className="flex gap-4 justify-between flex-wrap">
+                <div className="flex gap-4 mx-auto !sm:ml-0 md:mx-0">
+                  <Button onClick={()=>onSubscribeClick()} className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
+                    Subscribe
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-white/20 text-xs text-white hover:bg-white dark:bg-[#2C2C2C]/20 hover:text-white px-6 h-10 rounded-full bg-[#2C2C2C] backdrop-blur-sm w-40 cursor-pointer"
+                  >
+                    <Bookmark className="h-4 w-4 mr-2" />
+                    Save
+                  </Button>
+                </div>
 
-                  {/* Progress Bar */}
-                  {/* <div className="flex items-center gap-4 mt-3 mb-4">
-                    <span className="text-white text-sm font-medium">1:25</span>
-                    <div className="flex-1 bg-white dark:bg-[#2C2C2C]/20 rounded-full h-1.5 relative cursor-pointer">
-                      <div className="bg-[#C62676] h-1.5 rounded-full w-1/3 relative">
-                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-white dark:bg-[#2C2C2C] rounded-full shadow-sm"></div>
-                      </div>
-                    </div>
-                    <span className="text-white text-sm font-medium">2:45</span>
-                  </div> */}
-
-                  {/* Dots Navigation */}
-                  <div className="flex items-center justify-center gap-4 mt-3 mx-auto md:pr-10">
-                      <CarouselDots slides={slides} goToSlide={goToSlide} activeIndex={activeIndex}/>
-                  </div>
+                <div className="flex items-center gap-4 mx-auto md:mx-0 md:pr-10">
+                  {/* Custom dots */}
+                  <CarouselDots slides={slides} goToSlide={goToSlide} activeIndex={activeIndex}/>
+                  {/* <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-white border-2 rounded-full cursor-pointer"
+                  >
+                    <HiOutlineSpeakerXMark />
+                  </Button> */}
+                </div>
+              </div>
                  
                 </div>
               </div>
@@ -281,10 +280,10 @@ const VybzCarouselMusic = ({
 
           <style jsx global>{`
                 .slick-list{
-                    height:80vh
+                    height:90vh
                 }
                 .slick-track{
-                  height:80vh
+                  height:90vh
                 }
                 .dot {
                   transition: background-color 0.2s ease-in-out;

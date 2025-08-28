@@ -4,6 +4,7 @@ import VybzCarouselEducation from "@/components/VybzCarouselEducation";
 import EducationSlider from "@/components/EducationSlider";
 import { MdArrowForward } from "react-icons/md";
 import { Button } from "@/components/ui/button";
+import VybzMusicPlayer from "@/components/VybzMusicPlayer";
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function EducationListing() {
@@ -15,7 +16,17 @@ export default function EducationListing() {
       <div className="bg-[#F2F2F2] dark:bg-[#141414]">
         {/* Main Content */}
         <main className="">
-          <VybzCarouselEducation tabs={tabs} activeTab={activeTab} />
+          {/* <VybzCarouselEducation tabs={tabs} activeTab={activeTab} /> */}
+          <VybzMusicPlayer 
+            audioSrc="/audio/podcast.mp3"
+            bannerImage="/images/robert.png"
+            albumImage="/images/robertSm.png"
+            albumInfo=" 1 Book | 1Hr 40Min | 1 Issue"
+            platformLogo="/logos/bazeLg.png"
+            title="rich dad poor dad"
+            subtitle="robert kiyosaki"
+            
+          />
           {/* Content Navigation */}
           {/* TABS */}
           <div className="bg-[#F2F2F2] dark:bg-[#141414] mb-8 pt-8  ">

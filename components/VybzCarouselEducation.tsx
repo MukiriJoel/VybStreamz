@@ -49,6 +49,11 @@ const VybzCarouselEducation = ({
   const router = useRouter()
   const sliderRef = useRef<Slider>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const router = useRouter();
+  
+  const onSubscribeClick = () =>{
+       router.push(`/planselection/`);
+    }
 
   // Default slide if no slides provided
   const defaultSlide: ICarousel = {
@@ -157,15 +162,15 @@ const VybzCarouselEducation = ({
   }
   return (
     <>
-      <div className="relative h-[80vh] w-full overflow-hidden">
+      <div className="relative h-[90vh] w-full overflow-hidden">
         <Slider
           {...settings}
           ref={sliderRef}
           beforeChange={(_, next) => setActiveIndex(next)}
-          className="w-screen h-[80vh]"
+          className="w-screen h-[90vh]"
         >
           {slidesToRender.map((slide, index) => (
-            <div key={index} className="relative h-[80vh] w-screen">
+            <div key={index} className="relative h-[90vh] w-screen">
               {/* Background Cover Image with Overlay */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -243,9 +248,7 @@ const VybzCarouselEducation = ({
 
                   {/* Action Buttons */}
                   <div className="flex gap-4 mx-auto md:mx-0">
-                    <Button 
-                    onClick={handleSubscribe}
-                    className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
+                    <Button onClick={()=>onSubscribeClick()}  className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
                       Subscribe
                     </Button>
                     <Button
@@ -289,10 +292,10 @@ const VybzCarouselEducation = ({
 
           <style jsx global>{`
                 .slick-list{
-                    height:80vh
+                    height:90vh
                 }
                 .slick-track{
-                  height:80vh
+                  height:90vh
                 }
                 .dot {
                   transition: background-color 0.2s ease-in-out;

@@ -98,65 +98,65 @@ const PodcastPlayer: React.FC = () => {
     }
   ];
 
-  useEffect(() => {
-    const audio = audioRef.current as HTMLAudioElement | null;
-    if (audio) {
-      const updateTime = () => setCurrentTime(audio.currentTime);
-      const updateDuration = () => setDuration(audio.duration || 0);
+  // useEffect(() => {
+  //   const audio = audioRef.current as HTMLAudioElement | null;
+  //   if (audio) {
+  //     const updateTime = () => setCurrentTime(audio.currentTime);
+  //     const updateDuration = () => setDuration(audio.duration || 0);
       
-      audio.addEventListener('timeupdate', updateTime);
-      audio.addEventListener('loadedmetadata', updateDuration);
+  //     audio.addEventListener('timeupdate', updateTime);
+  //     audio.addEventListener('loadedmetadata', updateDuration);
       
-      return () => {
-        audio.removeEventListener('timeupdate', updateTime);
-        audio.removeEventListener('loadedmetadata', updateDuration);
-      };
-    }
-  }, [selectedPodcast]);
+  //     return () => {
+  //       audio.removeEventListener('timeupdate', updateTime);
+  //       audio.removeEventListener('loadedmetadata', updateDuration);
+  //     };
+  //   }
+  // }, [selectedPodcast]);
 
-  const handlePodcastSelect = (podcast: Podcast): void => {
-    setSelectedPodcast(podcast);
-    setIsPlaying(false);
-    setCurrentTime(0);
-  };
+  // const handlePodcastSelect = (podcast: Podcast): void => {
+  //   setSelectedPodcast(podcast);
+  //   setIsPlaying(false);
+  //   setCurrentTime(0);
+  // };
 
-  const togglePlayPause = (): void => {
-    const audio = audioRef.current as HTMLAudioElement | null;
-    if (audio) {
-      if (isPlaying) {
-        audio.pause();
-      } else {
-        audio.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  // const togglePlayPause = (): void => {
+  //   const audio = audioRef.current as HTMLAudioElement | null;
+  //   if (audio) {
+  //     if (isPlaying) {
+  //       audio.pause();
+  //     } else {
+  //       audio.play();
+  //     }
+  //     setIsPlaying(!isPlaying);
+  //   }
+  // };
 
-  const handleSeek = (e: React.MouseEvent<HTMLDivElement>): void => {
-    const audio = audioRef.current as HTMLAudioElement | null;
-    if (audio) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const percent = (e.clientX - rect.left) / rect.width;
-      audio.currentTime = percent * duration;
-    }
-  };
+  // const handleSeek = (e: React.MouseEvent<HTMLDivElement>): void => {
+  //   const audio = audioRef.current as HTMLAudioElement | null;
+  //   if (audio) {
+  //     const rect = e.currentTarget.getBoundingClientRect();
+  //     const percent = (e.clientX - rect.left) / rect.width;
+  //     audio.currentTime = percent * duration;
+  //   }
+  // };
 
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    const audio = audioRef.current as HTMLAudioElement | null;
-    if (audio) {
-      audio.volume = newVolume;
-    }
-  };
+  // const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  //   const newVolume = parseFloat(e.target.value);
+  //   setVolume(newVolume);
+  //   const audio = audioRef.current as HTMLAudioElement | null;
+  //   if (audio) {
+  //     audio.volume = newVolume;
+  //   }
+  // };
 
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+  // const formatTime = (seconds: number): string => {
+  //   const mins = Math.floor(seconds / 60);
+  //   const secs = Math.floor(seconds % 60);
+  //   return `${mins}:${secs.toString().padStart(2, '0')}`;
+  // };
 
-  const progressPercent = duration ? (currentTime / duration) * 100 : 0;
+  // const progressPercent = duration ? (currentTime / duration) * 100 : 0;
 
   return (
     <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414]">
@@ -167,51 +167,7 @@ const PodcastPlayer: React.FC = () => {
 
       {/* Partners Section */}
         <div className="p-8 max-w-8xl mx-auto">
-          {/* Episodes Section */}
 
-          <div className="bg-white dark:bg-[#2C2C2C] rounded-lg p-6 ">
-            <h3 className="text-[14px] !font-extrabold text-[#4D4D4D] dark:text-white mb-6">
-              Episodes
-            </h3>
-            <div className="space-y-4">
-              {[
-                {
-                  title: "Ukichelewa",
-                  subtitle: "Edin Finky Ft Lilian Okemo",
-                  duration: "4:33",
-                },
-                { title: "Way Up", subtitle: "Edin Finky", duration: "3:33" },
-                {
-                  title: "Sweet Mama",
-                  subtitle: "Edin Finky",
-                  duration: "3:33",
-                },
-                {
-                  title: "Facts",
-                  subtitle: "Edin Finky Ft Christine Okemo",
-                  duration: "3:33",
-                },
-                { title: "Gere", subtitle: "Edin Finky", duration: "5:33" },
-              ].map((episode, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between py-1 border-b border-[#e5e5e5] dark:!border-[#333333]"
-                >
-                  <div>
-                    <h4 className="font-semibold text-[14px] text-[#2C2C2C] dark:text-[#FFFFFF]">
-                      {episode.title}
-                    </h4>
-                    <p className="text-[12px] !font-normal text-[#4D4D4D] dark:text-white">
-                      {episode.subtitle}
-                    </p>
-                  </div>
-                  <span className="text-sm text-[#4D4D4D] dark:text-white">
-                    {episode.duration}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Partners Section */}
           <div className="pt-2">

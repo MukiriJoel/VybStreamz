@@ -311,11 +311,16 @@ export default function Gamedetails({
     }, 300);
   };
 
-  const Router = useRouter();
+  const router = useRouter();
 
   const onHandleClick = () => {
-    Router.push(`/viewMore/`);
+    router.push(`/viewMore/`);
   };
+
+  const onSubscribeClick = () =>{
+     router.push(`/planselection/`);
+  }
+
   return (
     <>
       <div
@@ -409,7 +414,7 @@ export default function Gamedetails({
           </div>
           <div className="flex gap-4 justify-between flex-wrap pt-4">
             <div className="flex gap-4 mx-auto !sm:ml-0 md:mx-0">
-              <Button className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
+              <Button onClick={()=>onSubscribeClick()} className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
                 Subscribe
               </Button>
               <Button

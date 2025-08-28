@@ -31,6 +31,7 @@ export default function Home() {
         {/* Hero Section */}
         <main className="">
           <Billboard/>
+          {/* <VybzCarouselMain/> */}
           <div className="p-8 max-w-8xl mx-auto">
             {/* Partners Section */}
             <section className="">

@@ -8,7 +8,7 @@ import { FaBagShopping } from "react-icons/fa6";
 import { FaRegBell } from "react-icons/fa6";
 import { FaTimes } from "react-icons/fa";
 import Link from 'next/link'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from "@/lib/context/AuthContext"
 import { useRouter } from 'next/navigation'
 
 const TOP_OFFSET = 66;
@@ -46,7 +46,7 @@ const Navbar = ({ isDarkBackground = true }) => {
         }
     }, [showSearchBar])
 
-    const handleSearchSubmit = (e) => {
+    const handleSearchSubmit = (e:any) => {
         e.preventDefault()
         if (searchQuery.trim()) {
             console.log("Searching for:", searchQuery)

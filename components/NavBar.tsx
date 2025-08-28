@@ -11,7 +11,7 @@ import { IconButton } from "@mui/material";
 import { usePathname, useRouter } from "next/navigation";
 import { text } from "stream/consumers";
 import { FaTimes } from "react-icons/fa";
-import { useAuth } from "@/app/context/AuthContext";
+import { useAuth } from "@/lib/context/AuthContext";
 
 const NavBar = ({position = 'fixed' , isSticky = false, color = 'transparent'}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -81,7 +81,7 @@ const NavBar = ({position = 'fixed' , isSticky = false, color = 'transparent'}) 
       const isInMusicPlayer = scrollY < viewportHeight - 150;
       
       // You can also check for specific routes that have dark backgrounds
-      const isDarkRoute = pathname.includes('/music') || pathname.includes('/games') || pathname.includes('/videos')  || pathname === '/podcasts' || pathname === '/education' || pathname === '/home' || pathname === '/education/educationListing' || pathname === '/planselection';
+      const isDarkRoute = pathname.includes('/music') || pathname.includes('/games') || pathname.includes('/videos')  || pathname.includes('/podcasts')  || pathname === '/education' || pathname === '/home' || pathname === '/education/book';
       
       setIsDarkBackground(isInMusicPlayer && isDarkRoute);
     };
@@ -107,7 +107,7 @@ const NavBar = ({position = 'fixed' , isSticky = false, color = 'transparent'}) 
         if (isSticky) {
             return 'sticky z-50';
         }
-        return position === 'fixed' ? 'fixed top-0 z-[100]' : 'relative';
+        return position === 'fixed' ? 'fixed top-0 z-[50]' : 'relative';
     };
 
   // Dynamic text colors based on background
@@ -124,7 +124,7 @@ const NavBar = ({position = 'fixed' , isSticky = false, color = 'transparent'}) 
 
   return (
     <>
-      <header className={`w-full transition-all z-50 duration-300 ${getPositionClass()} ${
+      <header className={`w-full transition-all  duration-300 ${getPositionClass()} ${
         isDarkBackground ? 'bg-transparent' : 'bg-[#F2F2F2] dark:bg-[#141414]'
       }`}>
         <nav className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
@@ -211,7 +211,7 @@ const NavBar = ({position = 'fixed' , isSticky = false, color = 'transparent'}) 
                 </IconButton>
               </div>
 
-              <Link href={"/profile"}>
+              <Link href={isLoggedIn ? "/profile" : "/createAccount"}>
 
                   <Avatar className="h-[50px] w-[50px] md:h-[60px] md:w-[60px] ml-2 md:ml-4 cursor-pointer">
                     <AvatarImage src="/logos/user-profile-illustration.png" className="object-cover" />

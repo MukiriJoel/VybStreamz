@@ -26,7 +26,7 @@ export default function MusicPage() {
         <div className="p-8 max-w-8xl mx-auto">
           {/* Episodes Section */}
 
-          <div className="bg-white dark:bg-[#2C2C2C] rounded-lg p-6 mb-8">
+          {/* <div className="bg-white dark:bg-[#2C2C2C] rounded-lg p-6 mb-8">
             <h3 className="text-[14px] !font-extrabold text-[#4D4D4D] dark:text-white mb-6">
               Tracklist
             </h3>
@@ -68,7 +68,7 @@ export default function MusicPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Partners Section */}
           <div className="mb-8">

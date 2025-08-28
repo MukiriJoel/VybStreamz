@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from "@/lib/context/AuthContext"
 
 const genres = [
   "Drama",
@@ -58,7 +58,7 @@ export default function PreferencePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-4 py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-4 py-12 sm:px-6 lg:px-8 lg:pt-40">
       <div className="mx-auto max-w-4xl">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -75,7 +75,7 @@ export default function PreferencePage() {
               key={`${genre}-${index}`}
               onClick={() => toggleGenre(genre)}
               className={`
-                px-6 py-3 rounded-full text-sm sm:text-base font-medium
+                cursor-pointer px-6 py-3 rounded-full text-sm sm:text-base font-medium
                 transition-all duration-200 ease-in-out
                 hover:scale-105 active:scale-95
                 ${

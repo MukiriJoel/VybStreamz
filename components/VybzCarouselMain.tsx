@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import VybzCarouselPodCast from "./VybzCarouselPodcast";
 import CarouselDots from "./CarouselDots";
+import { useRouter } from "next/navigation";
 
 export interface ICarousel {
   id: number;
@@ -38,6 +39,11 @@ const VybzCarouselMain = ({
 
   const sliderRef = useRef<Slider>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const router = useRouter();
+    
+    const onSubscribeClick = () =>{
+         router.push(`/planselection/`);
+      }
 
 
   // Default slide if no slides provided
@@ -132,11 +138,11 @@ const VybzCarouselMain = ({
   }
 
   return (
-    <div className="relative w-full h-[80vh] overflow-hidden">
+    <div className="relative w-full h-[90vh] overflow-hidden">
       {/* Slider */}
-      <Slider {...settings} ref={sliderRef}  beforeChange={(_, next) => setActiveIndex(next)} className="w-screen h-[80vh]">
+      <Slider {...settings} ref={sliderRef}  beforeChange={(_, next) => setActiveIndex(next)} className="w-screen h-[90vh]">
         {slidesToRender.map((slide, index) => (
-          <div key={index} className="relative h-[80vh] w-screen">
+          <div key={index} className="relative h-[90vh] w-screen">
             {/* Background */}
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -176,7 +182,7 @@ const VybzCarouselMain = ({
               {/* Action Buttons */}
               <div className="flex gap-4 justify-between flex-wrap">
                 <div className="flex gap-4 mx-auto !sm:ml-0 md:mx-0">
-                  <Button className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
+                  <Button onClick={()=>onSubscribeClick()} className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
                     Subscribe
                   </Button>
                   <Button
@@ -212,10 +218,10 @@ const VybzCarouselMain = ({
 
        <style jsx global>{`
             .slick-list{
-                height:80vh
+                height:90vh
             }
             .slick-track{
-              height:80vh
+              height:90vh
             }
             .dot {
               transition: background-color 0.2s ease-in-out;

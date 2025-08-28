@@ -322,7 +322,7 @@ export default function VideoPlayer({
         className={`relative bg-black overflow-hidden cursor-pointer ${
           isFullscreen
             ? "fixed inset-0 z-50 w-screen h-screen"
-            : "w-full h-[80vh]"
+            : "w-full h-[90vh]"
         }`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

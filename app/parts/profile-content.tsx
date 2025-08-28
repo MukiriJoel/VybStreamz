@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material"
 import { MdArrowForward, MdArrowLeft, MdArrowRight, MdOutlineChevronRight, MdOutlineEdit, MdAdd, MdClose } from "react-icons/md"
 import VideoSlider from "@/components/VideoSlider"
 import MusicSlider from "@/components/MusicSlider"
-import { useAuth } from "../context/AuthContext"
+import { useAuth } from "@/lib/context/AuthContext"
 import { useRouter } from "next/navigation"
 
 const subscriptions = [

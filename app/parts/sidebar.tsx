@@ -4,7 +4,7 @@ import { useState } from "react"
 import { User, Settings, Bell, MessageSquare, HelpCircle, LogOut, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePathname, useRouter } from 'next/navigation'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from "@/lib/context/AuthContext"
 import Link from "next/link";
 import Image from "next/image";
 

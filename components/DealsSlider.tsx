@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+
+
 
 const DealsSlider = () => {
+  const router = useRouter();
+
+const onSubscribeClick = () =>{
+     router.push(`/planselection/`);
+  }
+  
   return (
     <>
       <div className="overflow-x-auto scrollbar-hide">
@@ -95,7 +104,7 @@ const DealsSlider = () => {
                   </span>
                 </div>
                 
-                <Button className="w-full bg-[#C62676] hover:bg-[#a91e62] text-sm sm:text-base md:text-lg font-semibold text-white rounded-full capitalize py-4 sm:py-5 md:py-6 transition-colors">
+                <Button onClick={()=>onSubscribeClick()} className="w-full bg-[#C62676] hover:bg-[#a91e62] text-sm sm:text-base md:text-lg font-semibold text-white rounded-full capitalize py-4 sm:py-5 md:py-6 transition-colors">
                   {item.buttonText}
                 </Button>
               </div>

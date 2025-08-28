@@ -38,16 +38,20 @@ export default function VerifyEmail() {
   return (
     <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-6 py-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-16">
-        <ArrowLeft className="w-6 h-6 text-[#2C2C2C] text-[#FFFFFF] line-clamp-3dark:text-[#FFFFFF]" />
-        <div className="text-2xl font-bold">
-          <span className="text-[#e16026]">Vybe</span>
-          <span className="text-[#c62676]">Streams</span>
+      <div className="relative flex items-center">
+        <ArrowLeft className=" w-6 h-6 text-[#2C2C2C] text-black line-clamp-3dark:text-[#FFFFFF]" />
+        <div className="absolute flex items-center pl-260 pt-50">
+          <img src="/images/VybeStreams.png" alt="" />
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-sm mx-auto">
+    <div className="flex items-center justify-center min-h-[80vh] gap-0">
+      <div className="w-1/2 flex items-center justify-center p-8">
+                        <img className="max-w-full max-h-full object-contain" src="/images/create.png" alt="" />
+                    </div>
+
+      <div className="max-w-sm mx-auto ml-20">
         <h1 className="text-3xl font-bold text-[#2C2C2C] dark:text-[#FFFFFF] mb-4">Verify Email</h1>
 
         <p className="text-[#2C2C2C] dark:text-[#FFFFFF] mb-12 leading-relaxed">
@@ -81,6 +85,7 @@ export default function VerifyEmail() {
 
           <p className="text-[#2C2C2C] dark:text-[#FFFFFF]">Or verify via phone number</p>
         </div>
+      </div>
       </div>
     </div>
   )

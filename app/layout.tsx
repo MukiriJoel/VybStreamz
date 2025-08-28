@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import localFont from 'next/font/local'
-import { AuthProvider } from './context/AuthContext'
+import { AuthProvider } from '@/lib/context/AuthContext'
 import { ThemeProvider } from '@/lib/context/ThemeContext'
 
 export const metadata: Metadata = {
