@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1757322858319" clover="3.2.0">
+  <project timestamp="1757322858319" name="All files">
+    <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2" elements="16" coveredelements="15" complexity="0" loc="11" ncloc="11" packages="2" files="2" classes="2"/>
+    <package name="components.ui">
+      <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="button.tsx" path="C:\xampp\htdocs\VybStreamz\components\ui\button.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="48" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="59" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="lib">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="utils.ts" path="C:\xampp\htdocs\VybStreamz\lib\utils.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
