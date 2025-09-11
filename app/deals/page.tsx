@@ -16,7 +16,7 @@ export default function DealsPage(){
         <main className="mt-10">
             <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
                  <SectionHeader  viewButton={true} title="partners" route="/partners" />
-                 <div className="pt-4 px-4">
+                 <div className="pt-4 px-0">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
     {[
       {
