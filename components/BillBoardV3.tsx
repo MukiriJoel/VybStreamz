@@ -41,6 +41,7 @@ const BillBoardV3 = ({
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [previousActiveIndex, setPreviousActiveIndex] = useState(-1);
   const autoplayTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
 
@@ -89,7 +90,7 @@ const BillBoardV3 = ({
       description: "A modern-day tale of discovery and danger.",
       category: "Movie",
       ageRating: "16 Yrs +",
-      hlsUrl: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+      hlsUrl: "https://ireplay.tv/test/blender.m3u8",
       backgroundImage: "/images/dora.png",
       backgroundType: "video",
       streamingPlatform: "Baze",
@@ -106,8 +107,9 @@ const BillBoardV3 = ({
     autoplayTimerRef.current = setTimeout(goToNext, delay);
 
     return () => {
-      
-      if (autoplayTimerRef.current) clearTimeout(autoplayTimerRef.current);
+      if (autoplayTimerRef.current) {
+        clearTimeout(autoplayTimerRef.current);
+      }
     };
   }, [activeIndex, isPaused, autoplay, delay, slidesToRender.length]);
 
@@ -116,7 +118,10 @@ const BillBoardV3 = ({
     setIsTransitioning(true);
     setActiveIndex(index);
 
-    if (autoplayTimerRef.current) clearTimeout(autoplayTimerRef.current);
+    if (autoplayTimerRef.current) {
+      clearTimeout(autoplayTimerRef.current);
+      autoplayTimerRef.current = null;
+    }
     setTimeout(() => setIsTransitioning(false), transitionSpeed);
   };
 
@@ -127,21 +132,46 @@ const BillBoardV3 = ({
   const handleMouseEnter = () => {
     if (autoplay) {
       setIsPaused(true);
-      if (autoplayTimerRef.current) clearTimeout(autoplayTimerRef.current);
+      if (autoplayTimerRef.current) {
+        clearTimeout(autoplayTimerRef.current);
+        autoplayTimerRef.current = null;
+      }
     }
   };
 
   const handleMouseLeave = () => {
-    if (autoplay) setIsPaused(false);
+    if (autoplay) {
+      setIsPaused(false);
+    }
   };
 
   // --- Fixed Video Player Logic ---
   useEffect(() => {
+    // Only proceed if there's an actual slide change
+    if (activeIndex === previousActiveIndex) {
+      return;
+    }
+
     const slide = slidesToRender[activeIndex];
     const videoEl = videoRef.current;
     if (!videoEl) return;
 
-    // Cleanup previous player
+    // Check if we're switching to the same video source
+    const currentHlsUrl = hlsRef.current?.url;
+    const currentDashUrl = dashRef.current?.getSource ? dashRef.current.getSource() : null;
+    const currentMp4Url = videoEl.src;
+
+    // If the video source is the same, don't reinitialize
+    if (
+      (slide.hlsUrl && slide.hlsUrl === currentHlsUrl) ||
+      (slide.dashUrl && slide.dashUrl === currentDashUrl) ||
+      (slide.mp4Url && slide.mp4Url === currentMp4Url)
+    ) {
+      setPreviousActiveIndex(activeIndex);
+      return; // Keep the current video playing
+    }
+
+    // Only cleanup and reinitialize if we're changing to a different video
     if (hlsRef.current) {
       hlsRef.current.destroy();
       hlsRef.current = null;
@@ -151,14 +181,14 @@ const BillBoardV3 = ({
       dashRef.current = null;
     }
 
-    // Reset video element
+    // Reset video element only when changing sources
     videoEl.src = '';
     videoEl.load();
 
     if (slide.hlsUrl) {
       if (Hls.isSupported()) {
         const hls = new Hls({
-          debug: false, // Set to true for debugging
+          debug: false,
           enableWorker: true,
           lowLatencyMode: true,
           backBufferLength: 90
@@ -223,13 +253,16 @@ const BillBoardV3 = ({
     videoEl.addEventListener('error', handleError);
     videoEl.addEventListener('loadstart', handleLoadStart);
 
+    // Update the previous active index
+    setPreviousActiveIndex(activeIndex);
+
     // Cleanup listeners
     return () => {
       videoEl.removeEventListener('canplay', handleCanPlay);
       videoEl.removeEventListener('error', handleError);
       videoEl.removeEventListener('loadstart', handleLoadStart);
     };
-  }, [activeIndex, slidesToRender]);
+  }, [activeIndex, slidesToRender, previousActiveIndex]);
 
   // Cleanup on component unmount
   useEffect(() => {
@@ -239,6 +272,9 @@ const BillBoardV3 = ({
       }
       if (dashRef.current) {
         dashRef.current.reset();
+      }
+      if (autoplayTimerRef.current) {
+        clearTimeout(autoplayTimerRef.current);
       }
     };
   }, []);

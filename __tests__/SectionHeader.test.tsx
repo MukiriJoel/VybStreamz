@@ -3,73 +3,61 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SectionHeader from '../components/SectionHeader'
 
+// Mock next/router to intercept push
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+  }),
+}))
+
 describe('SectionHeader component', () => {
   it('renders section title correctly', () => {
-    const mockOnViewMoreClick = jest.fn()
-    
-    render(<SectionHeader title="test section" onViewMoreClick={mockOnViewMoreClick} />)
-    
+    render(<SectionHeader title="test section" route="/test" viewButton={true} />)
     expect(screen.getByText('test section')).toBeInTheDocument()
   })
 
   it('renders title with proper capitalization class', () => {
-    const mockOnViewMoreClick = jest.fn()
-    
-    render(<SectionHeader title="my videos" onViewMoreClick={mockOnViewMoreClick} />)
-    
+    render(<SectionHeader title="my videos" route="/test" viewButton={true} />)
     const titleElement = screen.getByText('my videos')
     expect(titleElement).toHaveClass('capitalize')
     expect(titleElement.tagName).toBe('H3')
   })
 
-  it('renders View More button', () => {
-    const mockOnViewMoreClick = jest.fn()
-    
-    render(<SectionHeader title="test" onViewMoreClick={mockOnViewMoreClick} />)
-    
+  it('renders View More button when viewButton is true', () => {
+    render(<SectionHeader title="test" route="/test" viewButton={true} />)
     expect(screen.getByRole('button', { name: /view more/i })).toBeInTheDocument()
   })
 
-  it('calls onViewMoreClick when View More button is clicked', async () => {
-    const mockOnViewMoreClick = jest.fn()
+  it('does NOT render View More button when viewButton is false', () => {
+    render(<SectionHeader title="test" route="/test" viewButton={false} />)
+    expect(screen.queryByRole('button', { name: /view more/i })).not.toBeInTheDocument()
+  })
+
+  it('calls router.push when View More button is clicked', async () => {
     const user = userEvent.setup()
-    
-    render(<SectionHeader title="test" onViewMoreClick={mockOnViewMoreClick} />)
-    
+    const mockPush = jest.fn()
+
+    // Override useRouter mock to spy on push
+    jest.mocked(require('next/navigation').useRouter).mockReturnValue({ push: mockPush })
+
+    render(<SectionHeader title="test" route="/my-route" viewButton={true} />)
+
     const viewMoreButton = screen.getByRole('button', { name: /view more/i })
     await user.click(viewMoreButton)
-    
-    expect(mockOnViewMoreClick).toHaveBeenCalledTimes(1)
+
+    expect(mockPush).toHaveBeenCalledWith('/my-route')
   })
 
-  it('renders with different titles', () => {
-    const mockOnViewMoreClick = jest.fn()
-    
-    const { rerender } = render(
-      <SectionHeader title="videos" onViewMoreClick={mockOnViewMoreClick} />
-    )
-    expect(screen.getByText('videos')).toBeInTheDocument()
-    
-    rerender(<SectionHeader title="music" onViewMoreClick={mockOnViewMoreClick} />)
-    expect(screen.getByText('music')).toBeInTheDocument()
-    expect(screen.queryByText('videos')).not.toBeInTheDocument()
-  })
-
-  it('has correct CSS classes for styling', () => {
-    const mockOnViewMoreClick = jest.fn()
-    
-    render(<SectionHeader title="test" onViewMoreClick={mockOnViewMoreClick} />)
-    
+  it('has correct container classes', () => {
+    render(<SectionHeader title="test" route="/test" viewButton={true} />)
     const container = screen.getByText('test').parentElement
-    expect(container).toHaveClass('flex', 'items-center', 'pt-2', 'justify-between')
+    expect(container).toHaveClass('flex', 'items-center', 'pt-0', 'justify-between')
   })
 
-  it('button has ghost variant class', () => {
-    const mockOnViewMoreClick = jest.fn()
-    
-    render(<SectionHeader title="test" onViewMoreClick={mockOnViewMoreClick} />)
-    
+  it('button has ghost variant and cursor-pointer class', () => {
+    render(<SectionHeader title="test" route="/test" viewButton={true} />)
     const button = screen.getByRole('button')
     expect(button).toHaveClass('cursor-pointer')
+    expect(button).toHaveClass('text-[#333333]')
   })
 })
