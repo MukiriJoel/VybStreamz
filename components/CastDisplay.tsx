@@ -75,16 +75,33 @@ const CastDisplay = () => {
       </div>
       <div className="flex gap-2 md:gap-10 py-2">
         {[
-          "/images/dp.png",
-          "/images/dp.png",
-          "/images/dp.png",
-          "/images/dp.png",
+            {
+      image: "/images/dp.png",
+      title: "awinja",
+      subTitle: "producer",
+    },
+            {
+      image: "/images/dp.png",
+      title: "pascal tokodi",
+      subTitle: "producer",
+    },
+            {
+      image: "/images/dp.png",
+      title: "awinja",
+      subTitle: "producer",
+    },
+            {
+      image: "/images/dp.png",
+      title: "awinja",
+      subTitle: "producer",
+    }
         ].map((actor, index) => (
           <div
             key={index}
-            className="rounded-full overflow-hidden w-12 h-12 border border-white bg-[#2C2C2C]"
+            className="gap-1 pb-1"
           >
-            <img className="object-cover w-full h-full" src={actor} />
+            {/* <img className="object-cover w-full h-full" src={actor} /> */}
+            <p className="font-normal text-sm text-white leading-[120%] text-center">{actor.title},</p>
           </div>
         ))}
       </div>
