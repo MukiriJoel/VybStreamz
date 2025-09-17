@@ -356,21 +356,22 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         onMouseMove={handleMouseMove}
       >
         {/* Video element */}
-        <video
-          ref={videoRef}
-          className={`object-contain ${
-            isFullscreen ? "w-screen h-screen" : "w-full h-full"
-          }`}
-          onClick={handleVideoClick}
-          onEnded={handleVideoEnded}
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleLoadedMetadata}
-          playsInline
-          muted={false} // Start unmuted for autoplay
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+       <video
+            ref={videoRef}
+            data-testid="video-player" // ✅ added for tests
+            className={`object-contain ${
+              isFullscreen ? "w-screen h-screen" : "w-full h-full"
+            }`}
+            onClick={handleVideoClick}
+            onEnded={handleVideoEnded}
+            onTimeUpdate={handleTimeUpdate}
+            onLoadedMetadata={handleLoadedMetadata}
+            playsInline
+            muted={false}
+          >
+            <source src={videoSrc} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
@@ -480,19 +481,20 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
               onMouseLeave={hideVolume}
             >
               <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMuted(!isMuted)}
-                className="cursor-pointer w-10 h-10 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333] "
-              >
-                {isMuted || volume === 0 ? (
-                  <VolumeX className="h-5 w-5 text-white" />
-                ) : volume < 0.5 ? (
-                  <Volume1 className="h-5 w-5 text-white" />
-                ) : (
-                  <Volume2 className="h-5 w-5 text-white" />
-                )}
-              </Button>
+                  aria-label="Volume" // ✅ added for tests
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="cursor-pointer w-10 h-10 rounded-full bg-[#2C2C2C] hover:!bg-[#333333]"
+                >
+                  {isMuted || volume === 0 ? (
+                    <VolumeX className="h-5 w-5 text-white" />
+                  ) : volume < 0.5 ? (
+                    <Volume1 className="h-5 w-5 text-white" />
+                  ) : (
+                    <Volume2 className="h-5 w-5 text-white" />
+                  )}
+                </Button>
               {showVolumeSlider && (
                 <div
                   className={`transition-all duration-200 ${
@@ -520,17 +522,18 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
             <div className="flex items-center space-x-4 ml-4">
               {/* Play/Pause Button */}
               <Button
-                variant="ghost"
-                size="icon"
-                onClick={handlePlayPause}
-                className="cursor-pointer w-12 h-12 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333] "
-              >
-                {isPlaying ? (
-                  <Pause className="h-6 w-6 text-white" />
-                ) : (
-                  <Play className="h-6 w-6 text-white ml-1" />
-                )}
-              </Button>
+                  aria-label={isPlaying ? "Pause" : "Play"} // ✅ added for tests
+                  variant="ghost"
+                  size="icon"
+                  onClick={handlePlayPause}
+                  className="cursor-pointer w-12 h-12 rounded-full bg-[#2C2C2C] hover:!bg-[#333333]"
+                >
+                  {isPlaying ? (
+                    <Pause className="h-6 w-6 text-white" />
+                  ) : (
+                    <Play className="h-6 w-6 text-white ml-1" />
+                  )}
+                </Button>
 
               {/* Skip Button */}
               <Button
