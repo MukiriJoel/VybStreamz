@@ -111,7 +111,7 @@ export default function TermsConditionsPage() {
 
 
               <p className="text-[#333333] dark:text-white text-sm leading-relaxed">
-                Please read these terms and conditions ("terms and conditions", "terms") carefully before using The Vyb
+                Please read these terms and conditions (&quot;terms and conditions&quot;, &quot;terms&quot;) carefully before using The Vyb
 
                 Streamz website
               </p>

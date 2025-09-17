@@ -120,7 +120,7 @@ export default function ResetPasswordPage({ onNavigate }: ResetPasswordPageProps
           <div className="prose prose-gray max-w-none">
             <p className="text-[#333333] dark:text-gray-300 leading-relaxed mb-6">
               To reset your password on the platform, begin by visiting the login page. Locate and click on
-              the 'Forgot Password' link, which will direct you to a new page. You will then be asked to input your
+              the &quot;Forgot Password&quot; link, which will direct you to a new page. You will then be asked to input your
               registered email address associated with your account. After you submit your email, check your inbox for a
               message containing a password reset link. Click on this link to be taken to a secure page where you can
               create a new password. Make sure to follow all the instructions provided in the email carefully to ensure
@@ -128,10 +128,10 @@ export default function ResetPasswordPage({ onNavigate }: ResetPasswordPageProps
             </p>
 
             <p className="text-[#333333] dark:text-gray-300 leading-relaxed">
-              Once you've successfully reset your password, return to the login page to access your account. If you wish
+              Once you&quot;ve successfully reset your password, return to the login page to access your account. If you wish
               to change your password at any time, navigate to your account settings after logging in. Look for the
-              'Change Password' section. Here, you will need to enter your current password, followed by your new
-              password, and then confirm the new password by entering it again. Don't forget to save your changes to
+              &quot;Change Password&quot; section. Here, you will need to enter your current password, followed by your new
+              password, and then confirm the new password by entering it again. Don&quot;t forget to save your changes to
               ensure that your password is updated.
             </p>
           </div>

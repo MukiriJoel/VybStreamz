@@ -916,7 +916,6 @@ export default function SettingsPage() {
         )}
 
         {selectedOption === "autoplay" && (
-         
           <div className="space-y-3">
             <button 
               className={`
