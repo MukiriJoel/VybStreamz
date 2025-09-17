@@ -161,6 +161,7 @@ const BillBoardV3 = ({
     const currentDashUrl = dashRef.current?.getSource ? dashRef.current.getSource() : null;
     const currentMp4Url = videoEl.src;
 
+    
     // If the video source is the same, don't reinitialize
     if (
       (slide.hlsUrl && slide.hlsUrl === currentHlsUrl) ||
