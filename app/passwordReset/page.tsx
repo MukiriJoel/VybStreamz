@@ -56,7 +56,10 @@ export default function PasswordResetForm() {
         {/* Form Section */}
         <div className="w-full lg:w-1/2 flex flex-col ">
           {/* Header - Now inside form section */}
-          <div className="flex pt-10 items-center w-full justify-center  md:px-6 md:pt-6 lg:pt-8 gap-50">
+         
+          {/* Form Content */}
+          <div className="flex-1 flex-col items-center justify-center mx-auto p-4 md:p-8 lg:pt-0">
+             <div className="flex pt-10 mb-5 items-center w-full justify-between max-w-md md:pt-6 lg:pt-8">
             <button 
               onClick={() => router.back()}
               className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
@@ -66,15 +69,13 @@ export default function PasswordResetForm() {
             <img onClick={()=>GoToHome()}  src="/logos/vybstreamz.png" alt="" className="cursor-pointer !h-15 !w-50" />
           </div>
           
-          {/* Form Content */}
-          <div className="flex-1 flex items-center justify-center p-4 md:p-8 lg:pt-0">
           <div className="w-full max-w-md space-y-6">
             {/* Title Section */}
             
 
             {/* Form */}
                     <div className="space-y-8">
-          <div className="text-center space-y-2">
+          <div className="text-left space-y-2">
             <h1 className="text-3xl font-bold text-[#2c2c2c] dark:text-[#FFFFFF]">Reset Password</h1>
             <p className="text-[#2c2c2c] dark:text-[#CCCCCC] text-sm">Your new password must be different from your previous passwords</p>
           </div>

@@ -5,13 +5,16 @@ import type React from "react";
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { MdArrowBack } from "react-icons/md";
 import OtpInput from "@/components/OtpInput";
 
 export default function VerifyEmail() {
   const [code, setCode] = useState(["", "", "", ""]);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnUrl = searchParams.get("returnUrl");
+   
 
   const handleInputChange = (index: number, value: string) => {
     if (value.length <= 1 && /^\d*$/.test(value)) {
@@ -34,7 +37,12 @@ export default function VerifyEmail() {
     }
   };
   const handleVerify = () => {
-    router.push("/preference");
+    if(returnUrl==="forgotPassword"){
+      router.push('/passwordReset')
+    }else{
+      router.push("/preference");
+    }
+   
   };
 
   const GoToHome = () =>{
@@ -57,17 +65,18 @@ export default function VerifyEmail() {
 
         {/* Form Section */}
         <div className="w-full lg:w-1/2 text-center lg:text-left flex flex-col ">
-          <div className="flex pt-10 items-center w-full justify-center  md:px-6 md:pt-6 lg:pt-8 gap-4">
+          
+
+          <div className="w-full pt-12  md:pt-2 mx-auto">
+            <div className="flex items-center w-full justify-between max-w-md mb-5 md:pt-6 lg:pt-8 ">
             <button 
               onClick={() => router.back()}
-              className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
+              className="cursor-pointer flex items-center !pl-0 mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
             >
               <MdArrowBack className="!w-8 !h-8"/>
             </button>
             <img onClick={()=>GoToHome()}  src="/logos/vybstreamz.png" alt="" className="cursor-pointer !h-15 !w-50" />
           </div>
-
-          <div className="w-full mx-auto  pt-20">
             <h1 className="text-3xl font-bold text-[#2C2C2C] dark:text-[#FFFFFF] mb-4">
               Verify Phone Number
             </h1>
@@ -95,14 +104,14 @@ export default function VerifyEmail() {
 
             {/* Verify Button */}
             <Button
-              className="w-[70%] h-14 bg-[#c62676] hover:bg-[#a91e63] text-white text-lg font-semibold rounded-full mb-6"
+              className="!w-md h-14 bg-[#c62676] hover:bg-[#a91e63] text-white text-lg font-semibold rounded-full mb-6"
               onClick={handleVerify}
             >
               Verify
             </Button>
 
             {/* Additional Options */}
-            <div className="text-center mx-auto lg:ml-0 w-[70%] space-y-4">
+            <div className="text-center md:text-left mx-auto lg:ml-0 w-[70%] space-y-4">
               <button className="text-[#2C2C2C] dark:text-[#FFFFFF] underline">
                 Resend Code
               </button>

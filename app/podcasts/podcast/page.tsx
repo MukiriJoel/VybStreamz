@@ -197,7 +197,7 @@ const PodcastPlayer: React.FC = () => {
         />
 
         {/* Partners Section */}
-        <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
+        <div className="p-2 md:p-4 lg:p-6 xl:p-6 max-w-8xl mx-auto">
           {/* Episodes Section */}
 
           <TrackList title="episodes"/>

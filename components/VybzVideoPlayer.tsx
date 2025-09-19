@@ -391,7 +391,7 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
 
         {/* Video Title & Description */}
         <div
-          className={`absolute pt-2 mb-25  md:w-full top-[19%] sm:top-[22%] md:top-[30%] lg:!top-[30%] ml-4 md:ml-16 transition-opacity duration-300 ${
+          className={`absolute pt-2 mb-25  md:w-full top-[19%] sm:top-[22%] md:top-[30%] lg:!top-[30%] ml-4 md:ml-8 transition-opacity duration-300 ${
             showContent
               ? isFullscreen
                 ? "opacity-100 top-[33%] md:!top-[43%] lg:!top-[43%]" // Different positioning when fullscreen

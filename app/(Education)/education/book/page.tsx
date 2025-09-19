@@ -51,7 +51,7 @@ export default function EducationListing() {
             </nav>
           </div>
           {activeTab === "E-Book" ? (
-            <div className="p-2">
+            <div className="py-2 px-2 md:px-4 lg:px-6 xl:px-6">
               {/* top ranked Section */}
               
 
@@ -76,7 +76,7 @@ export default function EducationListing() {
               </div>
             </div>
           ) : (
-            <div className="p-2">
+            <div className="py-2 px-2 md:px-4 lg:px-6 xl:px-6">
               {/* top ranked Section */}
               <div className="">
                  <SectionHeader title="top ranked" viewButton={true} route="/education"/>

@@ -45,8 +45,8 @@ return(
     <>
       <VybzVideoPlayer videoSrc ={videoSrc}/>
       {/* Trending Section */}
-      <main className="bg-[#F2F2F2] dark:bg-[#141414]">
-        <section className="px-2">
+      <main className="bg-[#F2F2F2] pt-4 dark:bg-[#141414]">
+        <section className="px-2 md:px-4 lg:px-6 xl:px-6">
           <SectionHeader  viewButton={true}
             title="top ranked games"
             route="/games"
@@ -54,7 +54,7 @@ return(
 
           <GamesSlider />
         </section>
-        <section className=" px-2">
+        <section className="px-2 md:px-4 lg:px-6 xl:px-6">
           <SectionHeader  viewButton={true}
             title="top ranked games"
             route="/games"

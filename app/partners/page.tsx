@@ -58,9 +58,9 @@ export default function PartnersPage() {
   return (
     <div className="bg-[#F2F2F2] dark:bg-[#141414]">
       {/* Main Content */}
-      <main className="">
+      <main className="px-2 md:px-4 lg:px-6 xl:px-6">
         {/* Hero Section */}
-        <div className="px-2 mt-12 pt-12">
+        <div className=" mt-12 pt-12">
           <PartnersCarousel />
         </div>
 
@@ -127,7 +127,7 @@ function PartnerSection({ title, partners }: PartnerSectionProps) {
   };
 
   return (
-    <section className="p-2 border-gray-200 dark:border-[#2C2C2C] ">
+    <section className="pt-10 border-gray-200 dark:border-[#2C2C2C] ">
      <SectionHeader  viewButton={true} title={title} route="/partners"/>
 
       <div className="grid pt-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 cursor-pointer"> 

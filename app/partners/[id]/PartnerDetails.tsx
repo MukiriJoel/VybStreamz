@@ -76,7 +76,7 @@ export default function PartnerDetails({ id }: { id: number }) {
       <main className="pt-12">
         {/* Hero Section */}
         {partnerDetails && (
-          <div className="px-2 pt-8 mt-10">
+          <div className="px-2  md:px-4 lg:px-6 xl:px-6 pt-8 mt-10">
             <div className="flex rounded-4xl overflow-hidden h-57vh md:h-[65vh] p-0">
               <img
                 src={partnerDetails?.image}
@@ -127,7 +127,7 @@ export default function PartnerDetails({ id }: { id: number }) {
         )}
 
         {isSubscribed ? (
-          <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
+          <div className="p-2 md:p-4 lg:p-6 xl:p-6 max-w-8xl mx-auto">
             {/* Episodes Section */}
             {/* Partners Section */}
             <div className="mb-7">
@@ -204,7 +204,7 @@ export default function PartnerDetails({ id }: { id: number }) {
           </div>
         ) : (
             
-          <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
+          <div className="p-2 md:p-4 lg:p-6 xl:p-6 max-w-8xl mx-auto">
             <section>
                 <ReviewTop/>
             </section>

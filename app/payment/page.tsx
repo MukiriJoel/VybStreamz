@@ -22,24 +22,27 @@ export default function HomePage() {
     {
       id: 1,
       name: "M-PESA",
-      component: <div className="text-green-600 text-md md:text-lg lg:font-bold lg:text-lg">M→PESA</div>,
+      component: "/images/Mpesa.webp",
     },
     {
       id: 2,
       name: "Airtime",
-      component: <div className="text-black font-bold text-lg">Airtime</div>,
+      component: "/images/Airtime.webp",
     },
     {
       id: 3,
       name: "VISA",
-      component: (
-        <div className="flex items-center gap-2">
-          <div className="text-blue-600 font-bold text-lg italic">VISA</div>
-          <div className="w-8 h-6 bg-gradient-to-r from-red-500 to-yellow-500 rounded-sm flex items-center justify-center">
-            <div className="w-6 h-4 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400 rounded-sm"></div>
-          </div>
-        </div>
-      ),
+      component: "/images/Card.webp",
+    },
+    {
+      id: 4,
+      name: "Okoa",
+      component: "/images/Okoa.webp",
+    },
+    {
+      id: 5,
+      name: "Bonga",
+      component: "/images/Bonga.webp",
     },
   ];
 
@@ -152,11 +155,11 @@ export default function HomePage() {
               </div>
 
               {/* Payment Options */}
-              <div className="flex lg:gap-5 gap-1 md:gap-4 pb-6 overflow-hidden">
+              {/* <div className="flex lg:gap-2 gap-1 md:gap-2 pb-6 overflow-hidden">
                 {paymentMethods.map((method) => (
                   <div
                     key={method.id}
-                    className={`bg-[#E5E5E5] rounded-lg md:px-6 py-1.5 px-1 border-2 hover:border-pink-500 cursor-pointer ${
+                    className={`bg-[#E5E5E5] rounded-lg md:px-6 py-1.5 px-1 hover:border-pink-500 cursor-pointer ${
                       selectedMethod === method.id
                         ? "border-pink-500 bg-pink-50 shadow-md"
                         : "border-gray-300"
@@ -166,7 +169,32 @@ export default function HomePage() {
                     {method.component}
                   </div>
                 ))}
+              </div> */}
+                <div className="mb-4">
+        {/* <h3 className="text-lg font-semibold mb-3">Alternative: Horizontal Scroll</h3> */}
+        <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide">
+          {paymentMethods.map((method) => (
+            <div
+              key={`scroll-${method.id}`}
+              className={`
+                flex-shrink-0 bg-white rounded-lg p-0 border-2 cursor-pointer transition-all duration-200
+                min-w-[100px] hover:shadow-lg
+                ${selectedMethod === method.id
+                  ? "border-pink-500 bg-pink-50 shadow-md"
+                  : "border-gray-200 hover:border-pink-300"
+                }
+              `}
+              onClick={() => setSelectedMethod(method.id as any)}
+            >
+              <div className="flex flex-col items-center p-0">
+                <img className="bg-transparent h-12 md:h-15" src={method.component}/>
+                
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
 
               {/* Phone Number Input */}
               <div className="space-y-4">

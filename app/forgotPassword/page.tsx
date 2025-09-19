@@ -4,21 +4,21 @@ import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { MdArrowBack } from "react-icons/md"
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("")
   const [usePhone, setUsePhone] = useState(false)
-  const router = useRouter()
-
+  const router = useRouter();
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Sending verification to:", email)
   }
 
   const handleResetPassword = () => {
-    router.push("/passwordReset")
+    router.push("/otp?returnUrl=forgotPassword")
   }
 
   const handleEmail = () => {
@@ -41,7 +41,11 @@ export default function ForgotPasswordPage() {
         {/* Form Section */}
         <div className="w-full lg:w-1/2 xl:w-2/5 flex flex-col">
           {/* Header */}
-           <div className="flex pt-10 items-center w-full justify-center  md:px-6 md:pt-6 lg:pt-8 gap-4">
+           
+              
+          {/* Form Content */}
+          <div className="flex-1 flex-col items-center justify-center mx-auto p-4 sm:p-6 lg:p-8 lg:pt-0 lg:space-y-8">
+            <div className="flex pt-10 mb-5 items-center w-full justify-between max-w-md  md:pt-6 lg:pt-8 gap-4">
               <button 
                 onClick={() => router.push('/login')}
                 className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
@@ -50,9 +54,6 @@ export default function ForgotPasswordPage() {
               </button>
               <img onClick={()=>GoToHome()}  src="/logos/vybstreamz.png" alt="" className="cursor-pointer !h-15 !w-50" />
             </div>
-              
-          {/* Form Content */}
-          <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8 lg:pt-0 lg:space-y-8">
             <div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
               {/* Title Section */}
               <div className="text-center sm:text-left">
@@ -60,7 +61,7 @@ export default function ForgotPasswordPage() {
                   Forgot Password
                 </h1>
                 <p className="text-sm sm:text-base leading-relaxed text-[#999999] dark:text-gray-400 transition-colors duration-200">
-                  Please enter your phone number or email address to receive a verification code
+                  Please enter your phone number to receive a verification code
                 </p>
               </div>
 
@@ -90,13 +91,13 @@ export default function ForgotPasswordPage() {
                   </div>
                 </div>
 
-                <button
+                {/* <button
                   type="button"
                   onClick={handleEmail}
                   className="text-sm underline text-[#999999] dark:text-gray-400 hover:text-[#777777] dark:hover:text-gray-300 transition-colors duration-200"
                 >
                   Use Email Instead
-                </button>
+                </button> */}
 
                 <Button
                   onClick={handleResetPassword}

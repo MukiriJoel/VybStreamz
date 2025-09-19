@@ -40,7 +40,11 @@ export default function ForgotPasswordEmailPage() {
         {/* Form Section */}
         <div className="w-full lg:w-1/2 xl:w-2/5 flex flex-col">
           {/* Header */}
-          <div className="flex pt-10 items-center w-full justify-center  md:px-6 md:pt-6 lg:pt-8 gap-4">
+          
+
+          {/* Form Content */}
+          <div className="flex-1 flex-col items-center justify-center mx-auto p-4 sm:p-6 lg:p-8 lg:pt-0">
+            <div className="flex pt-10 mb-5 items-center w-full justify-between max-w-md  md:pt-6 lg:pt-8">
             <button
               onClick={() => router.push("/login")}
               className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
@@ -54,9 +58,6 @@ export default function ForgotPasswordEmailPage() {
               className="cursor-pointer !h-15 !w-50"
             />
           </div>
-
-          {/* Form Content */}
-          <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8 lg:pt-0">
             <div className="w-full max-w-sm sm:max-w-md space-y-6 sm:space-y-8">
               {/* Title Section */}
               <div className="text-center sm:text-left">
@@ -89,13 +90,13 @@ export default function ForgotPasswordEmailPage() {
                   />
                 </div>
 
-                <button
+                {/* <button
                   type="button"
                   onClick={handleNumber}
                   className="text-sm underline text-[#999999] dark:text-gray-400 hover:text-[#777777] dark:hover:text-gray-300 transition-colors duration-200"
                 >
                   Use Phone Number Instead
-                </button>
+                </button> */}
 
                 <Button
                   onClick={handleResetPassword}

@@ -396,7 +396,7 @@ export default function VybzMusicPlayer({
 
         {/* Left Side Content - Album Info */}
         <div
-          className={`absolute w-full left-4 pr-4 md:left-16 top-[73%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
+          className={`absolute w-full left-2 pr-4 md:left-8 top-[73%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
             showContent ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -437,7 +437,7 @@ export default function VybzMusicPlayer({
               </div>
             </div>
             {/* Action Buttons */}
-            <div className="flex gap-4 pt-8 md:pt-1 pb-19 md:pb-4 lg:pb-15 mx-auto md:mx-0">
+            <div className="flex gap-4 pt-8 md:pt-1 pb-4 md:pb-4 lg:pb-15 mx-auto md:mx-0">
               <Button
                 onClick={() => onSubscribeClick()}
                 className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer"

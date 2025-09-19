@@ -32,7 +32,7 @@ export default function PlanSelection() {
             </div>
 
             <div className="flex-[2] w-full ">
-              <div className="w-full bg-[#ffffff] dark:bg-[#2C2C2C] rounded-lg px-10 py-16 h-auto md:h-120 shadow-sm">
+              <div className="w-full bg-[#ffffff] dark:bg-[#2C2C2C] rounded-lg px-7 py-9 h-auto md:h-120 shadow-sm">
                 <h2 className="text-3xl font-bold text-[#333333] dark:text-white mb-8 text-center">
                   Choose your Preferred Plan
                 </h2>
@@ -87,7 +87,7 @@ export default function PlanSelection() {
                     variant="outline"
                     className="cursor-pointer flex-1 text-base md:text-lg bg-[#2c2c2c] hover:bg-[#333333] dark:bg-[#141414] text-[#ffffff] border-[#2c2c2c] font-semibold py-7 px-6 rounded-lg"
                   >
-                    <MdOutlineShoppingBag  className="!w-5 !h-5 mr-2" />
+                    <MdOutlineShoppingBag  className="!w-8 !h-8 mr-2" />
                     Add To Cart
                   </Button>
                 </div>
