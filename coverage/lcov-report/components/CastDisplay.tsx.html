@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.48% </span>
+                <span class="strong">98.63% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>130/132</span>
+                <span class='fraction'>144/146</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.48% </span>
+                <span class="strong">98.63% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>130/132</span>
+                <span class='fraction'>144/146</span>
             </div>
         
             
@@ -195,7 +195,21 @@
 <a name='L130'></a><a href='#L130'>130</a>
 <a name='L131'></a><a href='#L131'>131</a>
 <a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -277,8 +291,22 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">24x</span>
-<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -387,12 +415,41 @@ const CastDisplay = () =&gt; {
   ];
 &nbsp;
   return (
-    &lt;div className="max-w-[210px] md:max-w-[320px] pb-0"&gt;
+    &lt;div className="max-w-[230px] md:max-w-[350px] pb-0"&gt;
       &lt;div className="flex items-center pt-2 justify-between"&gt;
         &lt;h3 className="text-xl md:!text-xl font-bold text-white capitalize"&gt;
           cast
         &lt;/h3&gt;
-&nbsp;
+      &lt;/div&gt;
+      &lt;div className="flex flex-nowrap gap-1 md:gap-3 py-2 items-center overflow-x-auto scrollbar-hide"&gt;
+        {[
+          {
+            image: "/images/dp.png",
+            title: "awinja",
+            subTitle: "producer",
+          },
+          {
+            image: "/images/dp.png",
+            title: "pascal tokodi",
+            subTitle: "producer",
+          },
+          {
+            image: "/images/dp.png",
+            title: "awinja",
+            subTitle: "producer",
+          },
+          {
+            image: "/images/dp.png",
+            title: "awinja",
+            subTitle: "producer",
+          },
+        ].map((actor, index) =&gt; (
+          &lt;div key={index} className="flex-shrink-0"&gt;
+            &lt;p className="!font-normal !flex-nowrap !px-0 !text-xs text-white leading-[120%] text-center whitespace-nowrap"&gt;
+              {actor.title},
+            &lt;/p&gt;
+          &lt;/div&gt;
+        ))}
         &lt;Button
           variant="ghost"
           className=" !pr-0 cursor-pointer text-white !text-sm !font-normal hover:border-white/20 hover:text-white hover:!bg-[#2C2C2C]"
@@ -401,21 +458,6 @@ const CastDisplay = () =&gt; {
           View More
           &lt;MdArrowForward className="!w-8 !h-8" /&gt;
         &lt;/Button&gt;
-      &lt;/div&gt;
-      &lt;div className="flex gap-2 md:gap-10 py-2"&gt;
-        {[
-          "/images/dp.png",
-          "/images/dp.png",
-          "/images/dp.png",
-          "/images/dp.png",
-        ].map((actor, index) =&gt; (
-          &lt;div
-            key={index}
-            className="rounded-full overflow-hidden w-12 h-12 border border-white bg-[#2C2C2C]"
-          &gt;
-            &lt;img className="object-cover w-full h-full" src={actor} /&gt;
-          &lt;/div&gt;
-        ))}
       &lt;/div&gt;
       {showCastModal &amp;&amp; (
         &lt;div className="fixed inset-0 backdrop-blur bg-black/16 flex items-center justify-center z-50"&gt;
@@ -466,7 +508,7 @@ export default CastDisplay;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-17T14:37:56.633Z
+                at 2025-09-18T14:09:31.280Z
             </div>
         <script src="../prettify.js"></script>
         <script>

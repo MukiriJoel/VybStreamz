@@ -198,7 +198,7 @@ export default function PartnerDetails({ id }: { id: number }) {
                 <ReviewTop/>
             </section>
             <section>
-                <SectionHeader  viewButton={true} title="user reviews" route={"/viewMore/review"}/>
+                <SectionHeader  viewButton={true} title="user reviews" route={"/viewMore/PartnersReview"}/>
                 <ReviewSlider/>
             </section>
           </div>

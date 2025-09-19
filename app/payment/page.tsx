@@ -22,7 +22,7 @@ export default function HomePage() {
     {
       id: 1,
       name: "M-PESA",
-      component: <div className="text-green-600 font-bold text-lg">M→PESA</div>,
+      component: <div className="text-green-600 text-md md:text-lg lg:font-bold lg:text-lg">M→PESA</div>,
     },
     {
       id: 2,
@@ -152,11 +152,11 @@ export default function HomePage() {
               </div>
 
               {/* Payment Options */}
-              <div className="flex lg:gap-5 gap-4 md:gap-4 pb-6 overflow-hidden">
+              <div className="flex lg:gap-5 gap-1 md:gap-4 pb-6 overflow-hidden">
                 {paymentMethods.map((method) => (
                   <div
                     key={method.id}
-                    className={`bg-[#E5E5E5] rounded-lg md:px-6 py-4 px-2 border-2 hover:border-pink-500 cursor-pointer ${
+                    className={`bg-[#E5E5E5] rounded-lg md:px-6 py-1.5 px-1 border-2 hover:border-pink-500 cursor-pointer ${
                       selectedMethod === method.id
                         ? "border-pink-500 bg-pink-50 shadow-md"
                         : "border-gray-300"

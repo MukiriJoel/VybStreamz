@@ -15,22 +15,22 @@ const Footer =()=>{
                 <img src="/logos/appStore.png" alt="Download on App Store" className="h-9 md:h-10" />
                 <img src="/logos/googlePlay.png" alt="Get it on Google Play" className="h-9 md:h-10" />
               </div>
-              <div className="flex space-x-6 items-center pt-4 md:pt-0 sm:pt-0 md:mb-0 lg:mb-0">
+              {/* <div className="flex space-x-6 items-center pt-4 md:pt-0 sm:pt-0 md:mb-0 lg:mb-0">
                  <a href="#" className="text-[#2C2C2C] dark:text-white hover:text-[#2C2C2C]">
-                <span className="sr-only">Instagram</span>
+                <span className="sr-only">Instagram</span> */}
                {/* <img src={"/logos/instagram.svg"}></img> */}
-               <FaInstagram className="w-8 h-8 "/>
-              </a>
-              <a href="#" className="text-[#2C2C2C] dark:text-white hover:text-[#2C2C2C]">
+               {/* <FaInstagram className="w-8 h-8 "/>
+              </a> */}
+              {/* <a href="#" className="text-[#2C2C2C] dark:text-white hover:text-[#2C2C2C]">
                 <span className="sr-only">Facebook</span>
                  <FaFacebookF className="w-8 h-7 "/>
               </a>
               <a href="#" className="text-[#2C2C2C] dark:text-white hover:text-[#2C2C2C]">
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">Twitter</span> */}
                  {/* <img src={"/logos/twitter-x.svg"}></img> */}
-                 <FaXTwitter   className="w-8 h-8 "/>
+                 {/* <FaXTwitter   className="w-8 h-8 "/>
               </a>
-              </div>
+              </div> */}
              
               
             </div>

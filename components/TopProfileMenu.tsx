@@ -142,7 +142,7 @@ const TopProfileMenu = ({closeProfileModal}: TopProfileMenuProps) => {
                       
                     </div>
               </div>
-              <div className="hover:bg-[#C62676]/20 cursor-pointer flex px-1 py-3 justify-between items-center border-t border-[#e5e5e5] dark:border-[#333333]" onClick={isLoggedIn? ()=>handleLogout():undefined}>
+              <div className="hover:bg-[#C62676]/20 cursor-pointer flex px-1 py-3 justify-between items-center border-t border-[#e5e5e5] dark:border-[#333333]" onClick={handleLogoutClick}>
                     <div className="flex justify-start items-center">
                         <LogOut className="h-7 w-7  text-[#2C2C2C2] dark:text-white"/>
                         <p className="text-xs leading-[120%] text-[#2C2C2C2] dark:text-white ml-3">Logout</p>
@@ -160,6 +160,44 @@ const TopProfileMenu = ({closeProfileModal}: TopProfileMenuProps) => {
             }
             
           </div>
+          {/* Logout Confirmation Modal */}
+      {showLogoutModal && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+          style={{ zIndex: 9999 }}
+        >
+          <div className="bg-white dark:bg-[#2C2C2C] rounded-xl p-6 w-full max-w-md mx-4 shadow-2xl">
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-4 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center">
+                <LogOut className="w-6 h-6 text-pink-600" />
+              </div>
+              
+              <h3 className="text-xl font-semibold text-pink-600 mb-3">
+                You are about to log out!
+              </h3>
+              
+              <p className="text-[#2C2C2C] dark:text-[#FFFFFF] mb-6 text-sm leading-relaxed">
+                Are you sure you want to log out from Vybz Streams? You will have to log back in to access your account.
+              </p>
+              
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={handleCancelLogout}
+                  className="px-6 py-2.5 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium"
+                >
+                  No, Go back
+                </button>
+                <button
+                  onClick={handleLogout}
+                  className="px-8 py-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors font-medium shadow-md"
+                >
+                  Log Out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
         </div>
     )
 }

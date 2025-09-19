@@ -27,7 +27,6 @@ export default function Sidebar() {
   const { isLoggedIn, logout } = useAuth();
   const pathname = usePathname();
 
-
   const handleLogoutClick = (e:any) => {
     e.preventDefault();
     setShowLogoutModal(true);
@@ -43,15 +42,10 @@ export default function Sidebar() {
     setShowLogoutModal(false);
   };
 
-  // const handleNavigation = (label:any) =>{
-  //   const Router=useRouter();
-  //   Router.push(`/profile/${label}`);
-  // }
-
   return (
     <>
       {/* Mobile Horizontal Tabs */}
-      <div className="lg:hidden mt-10 fixed top-0 left-0 right-0 bg-white dark:bg-[#2C2C2C] dark:bg-[#2C2C2C] border-b border-[#e5e5e5] dark:border-[#333333] z-40">
+      <div className="lg:hidden fixed top-0 left-0 right-0 bg-white dark:bg-[#2C2C2C] border-b border-[#e5e5e5] dark:border-[#333333] z-50">
         {/* Logo section */}
         <div className="h-[60px] flex justify-center items-center border-b border-[#e5e5e5] dark:border-[#333333]">
           <Link href={"/"}>
@@ -75,12 +69,12 @@ export default function Sidebar() {
                 onClick={item.label === "Logout" ? handleLogoutClick : undefined}
                 className={`
                   flex flex-col items-center justify-center min-w-[80px] px-3 py-2 rounded-lg text-center transition-colors cursor-pointer mx-1
-                  ${pathname === item.link ? "bg-[#c62676] text-white" : "text-[#2C2C2C] dark:text-[#FFFFFF] hover:bg-[#F2F2F2] dark:bg-[#2C2C2C]"}
-                  ${item.label === "Logout" ? "hover:bg-red-50 hover:text-red-600" : ""}
+                  ${pathname === item.link ? "bg-[#c62676] text-white" : "text-[#2C2C2C] dark:text-[#FFFFFF] hover:bg-[#F2F2F2] dark:hover:bg-[#444444]"}
+                  ${item.label === "Logout" ? "hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400" : ""}
                 `}
               >
                 <item.icon className="h-4 w-4 mb-1" />
-                <span className="text-xs font-medium leading-tight">{item.label}</span>
+                <span className="text-xs font-medium leading-tight whitespace-nowrap">{item.label}</span>
               </Link>
             ))}
           </div>
@@ -91,8 +85,15 @@ export default function Sidebar() {
       <div className="lg:hidden h-[120px]"></div>
 
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:block fixed top-0 left-0 h-screen border-r border-[#e5e5e5] dark:border-[#333333] dark:border-[#333333] w-64 bg-white dark:bg-[#2C2C2C] dark:bg-[#2C2C2C] shadow-lg z-40">
-        <div className="h-[100px] flex justify-center items-center">
+      <aside 
+        className="hidden lg:block fixed top-0 left-0 h-screen w-64 bg-white dark:bg-[#2C2C2C] border-r border-[#e5e5e5] dark:border-[#333333] shadow-xl overflow-y-auto"
+        style={{ zIndex: 1000 }}
+      >
+        {/* Logo section */}
+        <div 
+          className="h-[100px] flex justify-center items-center border-b border-[#e5e5e5] dark:border-[#333333] bg-white dark:bg-[#2C2C2C] sticky top-0"
+          style={{ zIndex: 1001 }}
+        >
           <div className="flex items-center">
             <Link href={"/"}>
               <Image 
@@ -105,7 +106,9 @@ export default function Sidebar() {
             </Link>
           </div>
         </div>
-        <div className="p-6">
+
+        {/* Navigation Menu */}
+        <div className="p-6 pb-8">
           <nav className="space-y-2">
             {menuItems.map((item, index) => (
               <Link
@@ -113,41 +116,52 @@ export default function Sidebar() {
                 key={index}
                 onClick={item.label === "Logout" ? handleLogoutClick : undefined}
                 className={`
-                  w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors cursor-pointer
-                  ${pathname === item.link ? "bg-[#c62676] text-white" : "text-[#2C2C2C] dark:text-[#FFFFFF] hover:bg-[#F2F2F2] dark:bg-[#2C2C2C]"}
-                  ${item.label === "Logout" ? "hover:bg-red-50 hover:text-red-600" : ""}
+                  w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 cursor-pointer group
+                  ${pathname === item.link ? "bg-[#c62676] text-white shadow-md" : "text-[#2C2C2C] dark:text-[#FFFFFF] hover:bg-[#F2F2F2] dark:hover:bg-[#444444]"}
+                  ${item.label === "Logout" ? "hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400" : ""}
                 `}
               >
-                <item.icon className="h-5 w-5" />
+                <item.icon className={`h-5 w-5 transition-transform duration-200 ${pathname !== item.link ? 'group-hover:scale-110' : ''}`} />
                 <span className="font-medium">{item.label}</span>
               </Link>
             ))}
           </nav>
         </div>
+
+        {/* Bottom padding to ensure last item is always visible */}
+        <div className="h-8"></div>
       </aside>
 
       {/* Logout Confirmation Modal */}
       {showLogoutModal && (
-        <div className="fixed inset-0 backdrop-blur bg-black/16 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-[#2C2C2C] rounded-lg p-6 w-100 mx-4">
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+          style={{ zIndex: 9999 }}
+        >
+          <div className="bg-white dark:bg-[#2C2C2C] rounded-xl p-6 w-full max-w-md mx-4 shadow-2xl">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-pink-600 mb-4">
-                You are about to log out !
+              <div className="w-12 h-12 mx-auto mb-4 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center">
+                <LogOut className="w-6 h-6 text-pink-600" />
+              </div>
+              
+              <h3 className="text-xl font-semibold text-pink-600 mb-3">
+                You are about to log out!
               </h3>
-              <p className="text-[#2C2C2C] dark:text-[#FFFFFF] mb-6">
-                Are you sure you want to log out from Vybz Streams? You will have to log back in to access your account
+              
+              <p className="text-[#2C2C2C] dark:text-[#FFFFFF] mb-6 text-sm leading-relaxed">
+                Are you sure you want to log out from Vybz Streams? You will have to log back in to access your account.
               </p>
               
-              <div className="flex gap-4 justify-center">
+              <div className="flex gap-3 justify-center">
                 <button
                   onClick={handleCancelLogout}
-                  className="px-6 py-2 bg-gray-600 dark:bg-white text-white dark:text-[#2C2C2C] rounded-lg hover:bg-gray-700 transition-colors"
+                  className="px-6 py-2.5 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-medium"
                 >
                   No, Go back
                 </button>
                 <button
                   onClick={handleLogout}
-                  className="px-10 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors"
+                  className="px-8 py-2.5 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors font-medium shadow-md"
                 >
                   Log Out
                 </button>

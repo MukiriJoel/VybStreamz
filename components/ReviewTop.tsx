@@ -6,12 +6,15 @@ import RatingDisplay from "./RatingDisplay";
 const ReviewTop = () => {
   return (
     <div className="flex w-full flex-col lg:flex-row lg:flex-wrap justify-between gap-4">
-      <div className="block w-full lg:w-auto">
-        <h2 className="capitalize font-semibold text-2xl">overall rating</h2>
-        <p className="font-semibold text-4xl">4.8</p>
+      <div className="block w-full lg:w-auto text-center lg:text-left">
+      <h2 className="capitalize font-semibold text-2xl">overall rating</h2>
+      <p className="font-semibold text-4xl">4.8</p>
+      <div className="flex justify-center lg:justify-start">
         <RatingDisplay className="pt-1" rating={4} />
-        <p className="capitalize pt-1">678 ratings</p>
       </div>
+      <p className="capitalize pt-1">678 ratings</p>
+    </div>
+
 
       <div className="py-4 w-full lg:flex-[4] lg:pl-15">
    <div className="flex flex-row items-start sm:items-center space-x-4 w-full">

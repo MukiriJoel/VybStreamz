@@ -203,7 +203,7 @@ const VybzCarouselMain = ({
                     {slide.category} | {slide.ageRating}
                   </p>
                   <p
-                    className={`text-white text-[12px] max-w-md pt-1 transition-all ease-out ${
+                    className={`text-white text-[12px] line-clamp-3 max-w-md pt-1 transition-all ease-out ${
                       index === activeIndex
                         ? "translate-y-0 opacity-100"
                         : "translate-y-4 opacity-0"
