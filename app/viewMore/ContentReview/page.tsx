@@ -17,7 +17,7 @@ export default function ViewMoreReview(){
 
                     <div className="flex-1 min-w-0 mt-4  md:ml-10 text-center md:text-left">
                         <h2 className="text-2xl md:text-3xl font-semibold text-[#2C2C2C] dark:text-[#FFFFFF] leading-[100%] capitalize">
-                        Awinja's Perfect Wedding
+                        Awinja&apos;s Perfect Wedding
                         </h2>
                         <p className="text-lg md:text-xl font-semibold text-[#2C2C2C] dark:text-[#FFFFFF] line-clamp-3">
                         Comedy meets romance in this heartwarming wedding story
