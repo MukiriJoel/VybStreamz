@@ -150,6 +150,7 @@ const BillBoardV3 = ({
     // Only proceed if there's an actual slide change
     if (activeIndex === previousActiveIndex) {
       return;
+      
     }
 
     const slide = slidesToRender[activeIndex];
