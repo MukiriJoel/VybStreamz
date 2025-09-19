@@ -372,6 +372,7 @@ export default function VybzMusicPlayer({
         {/* Hidden audio element */}
         <audio
           ref={audioRef}
+          data-testid="music-player"
           onEnded={handleAudioEnded}
           onTimeUpdate={handleTimeUpdate}
           onLoadedMetadata={handleLoadedMetadata}
@@ -395,15 +396,15 @@ export default function VybzMusicPlayer({
 
         {/* Left Side Content - Album Info */}
         <div
-          className={`absolute w-full left-4 pr-4 md:left-16 top-[54%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
+          className={`absolute w-full left-4 pr-4 md:left-16 top-[73%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
             showContent ? "opacity-100" : "opacity-0"
           }`}
         >
           {/* Album Details */}
           <div className="relative z-10 w-full h-full flex flex-col justify-end">
-            <div className="flex flex-wrap items-end gap-6 mb-20 md:mb-8">
+            <div className="flex flex-wrap items-end gap-6 mb-5 md:mb-8">
               {/* Album Cover */}
-              <div className="flex-shrink-0 flex items-center w-35 h-50 overflow-hidden">
+              <div className="flex-shrink-0 flex items-center w-34 h-46 md:w-35 md:h-50 overflow-hidden">
                 <img
                   src={albumImage}
                   alt="DISKO Cover"
@@ -414,13 +415,13 @@ export default function VybzMusicPlayer({
               <div className="flex-1 min-w-[150px] flex flex-col justify-end">
                 {/* Main Album Info */}
                 <div className="mb-0">
-                  <h1 className="text-[28px] font-extrabold text-white capitalize leading-tight">
+                  <h1 className="text-[20px] md:text-[28px] font-extrabold text-white capitalize leading-tight">
                     {title}
                   </h1>
-                  <p className="text-white text-[22px] mt-2 !font-normal leading-tight capitalize">
+                  <p className="text-white text-[16px] md:text-[22px] mt-2 !font-normal leading-tight capitalize">
                     {subtitle}
                   </p>
-                  <p className="text-white text-[12px] mt-2">{albumInfo}</p>
+                  <p className="text-white text-[10px] md:text-[12px] mt-2">{albumInfo}</p>
                 </div>
 
                 {/* Stream On and Controls Row */}
@@ -430,17 +431,13 @@ export default function VybzMusicPlayer({
                     <p className="text-white text-[14px] uppercase tracking-wide mr-3">
                       stream on:
                     </p>
-                    <img
-                      src={platformLogo}
-                      className="w-[45px] h-[45px]"
-                      alt={title}
-                    />
+                    <img src={platformLogo} className="w-[35px] h-[35px] md:w-[45px] md:h-[45px]" alt={title} />
                   </div>
                 </div>
               </div>
             </div>
             {/* Action Buttons */}
-            <div className="flex gap-4 pt-5 md:pt-1 pb-13 md:pb-4 lg:pb-4 mx-auto md:mx-0">
+            <div className="flex gap-4 pt-8 md:pt-1 pb-19 md:pb-4 lg:pb-15 mx-auto md:mx-0">
               <Button
                 onClick={() => onSubscribeClick()}
                 className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer"
@@ -461,7 +458,7 @@ export default function VybzMusicPlayer({
 
         {/* Right Side - Switch to Video Button */}
         <div
-          className={`absolute right-4 md:right-16 top-1/2 transition-opacity duration-300 ${
+          className={`absolute right-4 md:right-16 top-[67%] transition-opacity duration-300 ${
             showContent ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -476,7 +473,7 @@ export default function VybzMusicPlayer({
               <Button
                 variant="ghost"
                 size="icon"
-                className="cursor-pointer text-white border-2 border-white rounded-full cursor-pointer w-10 h-10"
+                className="cursor-pointer text-white border-2 border-white rounded-full w-10 h-10"
               >
                 <HiOutlineSpeakerXMark />
               </Button>
