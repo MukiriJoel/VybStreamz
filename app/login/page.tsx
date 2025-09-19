@@ -84,7 +84,7 @@ export default function LoginForm() {
                       <Input
                         value="+254"
                         readOnly
-                        className="text-center border-[#c62676] focus:border-[#c62676] focus:ring-[#c62676] text-sm dark:bg-gray-800 dark:border-[#c62676] dark:text-white transition-colors duration-200"
+                        className="text-center h-10 border-[#c62676] focus:border-[#c62676] focus:ring-[#c62676] text-sm dark:bg-gray-800 dark:border-[#c62676] dark:text-white transition-colors duration-200"
                       />
                     </div>
                     <div className="flex-1">
@@ -92,7 +92,7 @@ export default function LoginForm() {
                         type="tel"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
-                        className="border-[#c62676] focus:border-[#c62676] focus:ring-[#c62676] text-sm dark:bg-gray-800 dark:border-[#c62676] dark:text-white dark:placeholder-gray-400 transition-colors duration-200"
+                        className="border-[#c62676] h-10 focus:border-[#c62676] focus:ring-[#c62676] text-sm dark:bg-gray-800 dark:border-[#c62676] dark:text-white dark:placeholder-gray-400 transition-colors duration-200"
                         placeholder="720 123 456"
                       />
                     </div>
@@ -105,7 +105,7 @@ export default function LoginForm() {
                   <div className="relative">
                     <Input
                       type={showPassword ? "text" : "password"}
-                      className="pr-10 border-[#cccccc] dark:border-gray-600 focus:border-[#c62676] focus:ring-[#c62676] text-sm dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 transition-colors duration-200"
+                      className="pr-10 h-10 border-[#cccccc] dark:border-gray-600 focus:border-[#c62676] focus:ring-[#c62676] text-sm dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 transition-colors duration-200"
                       placeholder="Enter your password"
                     />
                     <button
@@ -131,13 +131,13 @@ export default function LoginForm() {
                 {/* Login Button */}
                 <Button 
                   onClick={handleSuccessLogin}
-                  className="w-full bg-[#c62676] hover:bg-[#c62676]/90 text-white font-medium py-3 rounded-full text-sm sm:text-base transition-all duration-200"
+                  className="w-full h-12 bg-[#c62676] hover:bg-[#c62676]/90 text-white font-medium py-3 rounded-full text-sm sm:text-base transition-all duration-200"
                 >
                   Log In
                 </Button>
 
                 {/* Safaricom Button */}
-                <Button className="w-full bg-[#35a839] hover:bg-[#35a839]/90 text-white font-medium py-3 rounded-full text-sm sm:text-base transition-all duration-200">
+                <Button className="w-full h-12 bg-[#35a839] hover:bg-[#35a839]/90 text-white font-medium py-3 rounded-full text-sm sm:text-base transition-all duration-200">
                   Continue With Safaricom
                 </Button>
 

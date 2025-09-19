@@ -93,25 +93,53 @@ const TopProfileMenu = ({closeProfileModal}: TopProfileMenuProps) => {
                             <MdClose className="w-6 h-6 text-[#2C2C2C] dark:text-white" />
                           </button>
             </div> */}
-            <div onClick={()=>onMenuClick()} className="hover:bg-[#C62676]/20 cursor-pointer flex py-2 px-0 justify-between  items-center">
-                 <div className="flex justify-start">
-                  <Avatar  className="h-[65px] w-[65px] md:h-[65px] md:w-[65px] cursor-pointer">
+            <div onClick={()=>onMenuClick()} className="hover:bg-[#C62676]/20 cursor-pointer flex py-2 px-0 justify-between items-center">
+                <div className="flex justify-start">
+                  <Avatar className="h-[65px] w-[65px] md:h-[65px] md:w-[65px] cursor-pointer">
                     <AvatarImage src="/logos/user-profile-illustration.png" className="object-cover" />
                     <AvatarFallback>U</AvatarFallback>
                   </Avatar>
-                  <div className="block items-center pt-3 pl-3 ">
-                          <p className="!text-2xl !font-extrabold text-[#2C2C2C] dark:text-white leading-[100%]">{isLoggedIn ? `My Profile`:`Create Account`}</p>
-                          <p className="!text-xs mt-2 !font-light text-[#2C2C2C] uppercase dark:text-white leading-[100%]">{isLoggedIn ? `Onunga`:``}</p>
+                  <div className="block items-center pt-3 pl-3">
+                    <p className="!text-2xl !font-extrabold text-[#2C2C2C] dark:text-white leading-[100%]">
+                      {isLoggedIn ? `My Profile` : `Create Account`}
+                    </p>
+                    <p className="!text-xs mt-2 !font-light text-[#2C2C2C] uppercase dark:text-white leading-[100%]">
+                      {isLoggedIn ? `Onunga` : ``}
+                    </p>
                   </div>
-                 </div>
-                 
-                 
-                    <IconButton className="hover:!bg-transparent !pr-0" onClick={() => router.push("/account/profile")}>
-                        {/* <p className="text-lg text-[#2C2C2C] dark:text-white">{isLoggedIn ? `My Profile`:`Create Account`}</p> */}
-                      
-                        <FaCircleChevronRight className="w-8 h-8 text-[#2C2C2C] dark:text-[#FFFFFF]" /> 
-                    </IconButton>
-            </div>
+                </div>
+
+                <IconButton className="hover:!bg-transparent !pr-0">
+                  <FaCircleChevronRight className="w-8 h-8 text-[#2C2C2C] dark:text-[#FFFFFF]" /> 
+                </IconButton>
+              </div>
+
+              {/* ✅ NEW SIGN-IN OPTION (ONLY SHOW IF LOGGED OUT) */}
+              {!isLoggedIn && (
+                <div 
+                  className="hover:bg-[#C62676]/20 cursor-pointer flex py-2 px-0 justify-between items-center border-t border-[#e5e5e5] dark:border-[#333333]" 
+                  onClick={() => {
+                    router.push('/login');
+                    closeProfileModal();
+                  }}
+                >
+                  <div className="flex justify-start">
+                    <Avatar className="h-[65px] w-[65px] md:h-[65px] md:w-[65px] cursor-pointer">
+                      <AvatarImage src="/logos/user-profile-illustration.png" className="object-cover" />
+                      <AvatarFallback>S</AvatarFallback>
+                    </Avatar>
+                    <p className="!text-2xl !font-bold text-[#2C2C2C] dark:text-white pl-3 pt-5 leading-[100%]">
+                      Sign In
+                    </p>
+                  </div>
+                  <IconButton className="hover:!bg-transparent !pr-0">
+                    <FaCircleChevronRight className="w-8 h-8 text-[#2C2C2C] dark:text-[#FFFFFF]" /> 
+                  </IconButton>
+                </div>
+              )}
+
+
+            
             <div className="hover:bg-[#C62676]/20 flex gap-2 px-1 py-3 justify-between items-center ">
                     <div className="flex justify-start items-center">
                         <p className="text-xs leading-[120%] text-[#2C2C2C2] dark:text-white">Switch App Theme</p>
@@ -120,6 +148,9 @@ const TopProfileMenu = ({closeProfileModal}: TopProfileMenuProps) => {
                         <TabPillComponent tabs={['light', 'dark']} activeTab={activeTab}  onTabChange={handleDrawerTabChange}/>
                     </div>
             </div>
+
+
+            
             
            
             {isLoggedIn ? 

@@ -18,9 +18,9 @@ export default function PlanSelection() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-2 md:px-4 pt-12 mt-18 max-w-8xl">
+      <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-2 md:px-4 pt-12 mt-18 max-w-8xl lg:mx-4">
        
-          <div className="flex w-full flex-col lg:flex-row items-center gap-6  mx-auto my-auto">
+          <div className="flex w-full flex-col lg:flex-row items-center gap-20  mx-auto my-auto">
             <div className="flex-1 hidden lg:flex w-full items-center bg-white dark:bg-[#2C2C2C] flex justify-center rounded-lg p-8 h-auto md:h-120 shadow-sm">
               <div className="relative">
                 <img
@@ -85,7 +85,7 @@ export default function PlanSelection() {
                   </Button>
                   <Button
                     variant="outline"
-                    className="cursor-pointer flex-1 text-base md:text-lg bg-[#2c2c2c] hover:bg-[#333333] dark:bg-[#141414] text-[#ffffff] border-[#2c2c2c] font-semibold py-7 px-6 rounded-lg"
+                    className="cursor-pointer flex-1 text-base md:text-lg bg-[#2c2c2c] hover:bg-[#333333] hover:text-[#ffffff] dark:bg-[#141414] text-[#ffffff] border-[#2c2c2c] font-semibold py-7 px-6 rounded-lg"
                   >
                     <MdOutlineShoppingBag  className="!w-8 !h-8 mr-2" />
                     Add To Cart
