@@ -40,7 +40,7 @@ export default function ForgotPasswordEmailPage() {
         {/* Form Section */}
         <div className="w-full lg:w-1/2 xl:w-2/5 flex flex-col">
           {/* Header */}
-          <div className="flex pt-10 items-center w-full justify-center  md:px-6 md:pt-6 lg:pt-8 gap-4">
+          <div className="flex pt-10 items-center w-full justify-center gap-40 md:gap-30 md:px-6 md:pt-6 lg:pt-8 lg:gap-55">
             <button
               onClick={() => router.push("/login")}
               className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
@@ -84,7 +84,7 @@ export default function ForgotPasswordEmailPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg border border-[#cccccc] dark:border-gray-600 bg-white dark:bg-gray-800 text-[#2c2c2c] dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#c62676] focus:ring-[#c62676] dark:focus:border-[#c62676] transition-colors duration-200"
+                    className="w-full h-10 px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg border border-[#cccccc] dark:border-gray-600 bg-white dark:bg-gray-800 text-[#2c2c2c] dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:border-[#c62676] focus:ring-[#c62676] dark:focus:border-[#c62676] transition-colors duration-200"
                     required
                   />
                 </div>
@@ -100,7 +100,7 @@ export default function ForgotPasswordEmailPage() {
                 <Button
                   onClick={handleResetPassword}
                   type="submit"
-                  className="w-full py-3 sm:py-4 text-sm sm:text-base font-medium rounded-full border-0 hover:opacity-90 transition-all duration-200 bg-[#c62676] hover:bg-[#b01f64] text-white"
+                  className="w-full h-12 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-full border-0 hover:opacity-90 transition-all duration-200 bg-[#c62676] hover:bg-[#b01f64] text-white"
                 >
                   Send
                 </Button>

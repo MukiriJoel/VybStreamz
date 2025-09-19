@@ -57,7 +57,7 @@ export default function VerifyEmail() {
 
         {/* Form Section */}
         <div className="w-full lg:w-1/2 text-center lg:text-left flex flex-col ">
-          <div className="flex pt-10 items-center w-full justify-center  md:px-6 md:pt-6 lg:pt-8 gap-4">
+          <div className="flex pt-10 items-center w-full justify-center gap-40 md:gap-30 md:px-6 md:pt-6 lg:pt-8 lg:gap-55 lg:pr-40">
             <button 
               onClick={() => router.back()}
               className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
@@ -67,7 +67,7 @@ export default function VerifyEmail() {
             <img onClick={()=>GoToHome()}  src="/logos/vybstreamz.png" alt="" className="cursor-pointer !h-15 !w-50" />
           </div>
 
-          <div className="w-full mx-auto  pt-20">
+          <div className="w-full mx-auto pt-20 lg:pt-20 lg:pl-30">
             <h1 className="text-3xl font-bold text-[#2C2C2C] dark:text-[#FFFFFF] mb-4">
               Verify Phone Number
             </h1>
@@ -95,14 +95,14 @@ export default function VerifyEmail() {
 
             {/* Verify Button */}
             <Button
-              className="w-[70%] h-14 bg-[#c62676] hover:bg-[#a91e63] text-white text-lg font-semibold rounded-full mb-6"
+              className="w-[60%] h-12 bg-[#c62676] hover:bg-[#a91e63] text-white text-lg font-semibold rounded-full mb-6 "
               onClick={handleVerify}
             >
               Verify
             </Button>
 
             {/* Additional Options */}
-            <div className="text-center mx-auto lg:ml-0 w-[70%] space-y-4">
+            <div className="text-center mx-auto lg:ml-0 w-[60%] space-y-4">
               <button className="text-[#2C2C2C] dark:text-[#FFFFFF] underline">
                 Resend Code
               </button>
