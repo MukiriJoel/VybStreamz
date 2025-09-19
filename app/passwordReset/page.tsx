@@ -90,7 +90,7 @@ export default function PasswordResetForm() {
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-[#c62676] rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
+                  className="w-full h-10 px-4 py-3 border-2 border-[#c62676] rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
                   placeholder=""
                 />
               </div>
@@ -104,7 +104,7 @@ export default function PasswordResetForm() {
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-[#c62676] rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
+                  className="w-full h-10 px-4 py-3 border-2 border-[#c62676] rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
                   placeholder=""
                 />
               </div>
@@ -153,7 +153,7 @@ export default function PasswordResetForm() {
             onClick={handleHomeRoute}
               type="submit"
             //   disabled={!allValidationsPassed || newPassword !== confirmPassword}
-              className="w-full bg-[#c62676] hover:bg-[#c62676]/90 text-white font-semibold py-4 px-6 rounded-full text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full h-12 bg-[#c62676] hover:bg-[#c62676]/90 text-white font-semibold py-4 px-6 rounded-full text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Update Password
             </Button>
