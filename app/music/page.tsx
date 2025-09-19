@@ -31,7 +31,7 @@ export default function MusicPage() {
         {/* Podcast Player Section */}
         <VybzCarouselMusic/>
 
-        <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
+        <div className="p-2 md:p-4 lg:p-6 xl:p-6 max-w-8xl mx-auto">
         
 
           {/* Partners Section */}

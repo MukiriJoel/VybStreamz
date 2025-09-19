@@ -15,7 +15,7 @@ export default function DealsPage() {
     <div className="bg-[#F2F2F2] dark:bg-[#141414]">
       {/* Main Content */}
       <main className="mt-12 pt-10">
-        <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
+        <div className="p-2 md:p-4 lg:p-6 xl:p-6 max-w-8xl mx-auto">
           <div className="pt-2 px-0">
             <div className="flex justify-start mb-3">
                   <MdArrowBack className="mt-3 mr-4 h-7 w-7 cursor-pointer" onClick={()=>router.back()}/>

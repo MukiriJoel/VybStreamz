@@ -58,7 +58,7 @@ export default function PreferencePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-2 py-12 sm:px-6 lg:px-4 lg:pt-40">
+    <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-2 py-12 sm:px-6 lg:px-4 ">
       <div className="mx-auto max-w-4xl">
         {/* Header Section */}
         <div className="text-center mb-12">

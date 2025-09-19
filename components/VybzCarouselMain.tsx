@@ -165,7 +165,7 @@ const VybzCarouselMain = ({
             </div>
 
             {/* Content */}
-            <div className="relative pb-9 md:pb-15 z-10 h-full flex flex-col justify-end px-8">
+            <div className="relative pb-9 md:pb-15 z-10 h-full flex flex-col justify-end px-3 md:px-8">
               <div className="flex flex-wrap items-end gap-6 mb-4">
                 <div className="flex-1 min-w-[150px]">
                   <h1

@@ -213,10 +213,10 @@ const MusicSlider = () => {
               </div>
 
               {/* Title (shown when not hovering) */}
-              <p className="font-semibold text-left text-[#2C2C2C] dark:text-[#FFFFFF] text-xl sm:text-sm md:text-xl lg:text-xl capitalize max-w-24 sm:max-w-28 md:max-w-32 lg:max-w-40 md:group-hover:opacity-0 transition-opacity duration-300">
+              <p className="font-semibold text-left text-[#2C2C2C] dark:text-[#FFFFFF] text-sm sm:text-sm md:text-base lg:text-lg capitalize max-w-24 sm:max-w-28 md:max-w-32 lg:max-w-40 md:group-hover:opacity-0 transition-opacity duration-300">
                 {item.title}
               </p>
-              <p onClick={()=>handleArtistClick(item.id as any)} className="!text-sm text-left !md:text-sm text-black dark:text-white !font-normal line-clamp-2 leading-[120%] capitalize md:max-w-32 lg:max-w-40 md:group-hover:opacity-0 transition-opacity duration-300">
+              <p onClick={()=>handleArtistClick(item.id as any)} className="!text-xs text-left !md:text-sm text-black dark:text-white !font-normal line-clamp-2 leading-[120%] capitalize md:max-w-32 lg:max-w-40 md:group-hover:opacity-0 transition-opacity duration-300">
                     {item.subtitle}
               </p>
             </div>

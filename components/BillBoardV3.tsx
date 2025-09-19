@@ -150,7 +150,7 @@ const BillBoardV3 = ({
     // Only proceed if there's an actual slide change
     if (activeIndex === previousActiveIndex) {
       return;
-      
+
     }
 
     const slide = slidesToRender[activeIndex];
@@ -370,7 +370,7 @@ const BillBoardV3 = ({
           >
             {renderBackground(slide, index)}
             {/* Overlay Content */}
-            <div className="relative pb-9 md:pb-15 z-20 h-full flex flex-col justify-end px-8">
+            <div className="relative pb-9 md:pb-15 z-20 h-full flex flex-col justify-end px-3 md:px-8">
               {/* Title & Meta */}
               <div className="flex flex-wrap items-end gap-6 mb-4">
                 <div className="flex-1 min-w-[150px]">

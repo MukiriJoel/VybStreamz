@@ -178,7 +178,7 @@ const VybzCarouselMusic = ({
               </div>
 
               {/* Content Overlay */}
-              <div className="relative z-10 pb-9 md:pb-15 px-8 h-full flex flex-col justify-end">
+              <div className="relative z-10 pb-9 md:pb-15 px-3 md:px-8 h-full flex flex-col justify-end">
              
                   <div className="flex flex-wrap items-end gap-6 mb-8">
                     {/* Album Cover */}

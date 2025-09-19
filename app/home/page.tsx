@@ -37,7 +37,7 @@ export default function Home() {
         <main className="">
           <BillBoardV3/>
           {/* <VybzCarouselMain/> */}
-          <div className="p-2 md:p-4 lg:p-4 max-w-8xl mx-auto">
+          <div className="p-2 md:p-4 lg:p-6 xl:p-6 max-w-8xl mx-auto">
             {/* Partners Section */}
             <section className="">
                 <SectionHeader  viewButton={true} title="partners" route='/partners'/>
