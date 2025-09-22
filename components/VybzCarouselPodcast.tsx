@@ -187,7 +187,7 @@ const VybzCarouselPodCast = ({
              
                   <div className="flex flex-wrap items-end gap-6 mb-8">
                     {/* Album Cover */}
-                    <div className="flex-shrink-0 flex items-center mb-4 w-35 h-50 overflow-hidden">
+                    <div className="flex-shrink-0 flex items-center md:mb-1 w-35 h-50 overflow-hidden">
                       <img
                         src={slide.cover}
                         alt="DISKO Cover"
@@ -210,7 +210,7 @@ const VybzCarouselPodCast = ({
                           {slide.genre}
                         </p>
                         <p
-                    className={`text-white text-[12px] line-clamp-3 max-w-md py-1 transition-all ease-out`}
+                    className={`text-white text-[12px] line-clamp-2 max-w-md py-1 transition-all ease-out`}
                     
                   >
                     {slide.description}
