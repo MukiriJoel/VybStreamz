@@ -219,7 +219,7 @@ export default function CreateAccountPage() {
               </Button>
 
               {/* Sign In Link */}
-              <div className="text-center text-xs sm:text-sm text-[#333333] dark:text-white transition-colors duration-200">
+              <div className="text-center md:text-left text-xs sm:text-sm text-[#333333] dark:text-white transition-colors duration-200">
                 Already have an account{" "}
                 <a href="#" 
                   onClick={handleLoginPage}
@@ -229,7 +229,7 @@ export default function CreateAccountPage() {
               </div>
 
               {/* Social Login Buttons */}
-              <div className="flex justify-center gap-3 pt-4">
+              <div className="flex md:justify-start justify-center gap-3 pt-4">
                 <img className="w-auto h-8 sm:h-10" src="/images/Frame 4802.png" alt="" />
               </div>
             </div>
