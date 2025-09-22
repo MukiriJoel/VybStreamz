@@ -172,7 +172,7 @@ export default function HomePage() {
               </div> */}
                 <div className="mb-4">
         {/* <h3 className="text-lg font-semibold mb-3">Alternative: Horizontal Scroll</h3> */}
-        <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide">
+        {/* <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide">
           {paymentMethods.map((method) => (
             <div
               key={`scroll-${method.id}`}
@@ -192,7 +192,28 @@ export default function HomePage() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
+           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-8">
+        {paymentMethods.map((method) => (
+          <div
+            key={method.id}
+            className={`
+              rounded-lg p-2 bg-[#E5E5E5] cursor-pointer transition-all duration-200 
+              hover:shadow-lg  
+              ${selectedMethod === method.id
+                ? "border-2 border-pink-500 bg-pink-50 shadow-md"
+                : "border-gray-200 hover:border-pink-300"
+              }
+            `}
+            onClick={() => setSelectedMethod(method.id as any)}
+          >
+             <div className="flex flex-col items-center p-0">
+                      <img className="bg-transparent h-12" src={method.component}/>
+             </div>
+            
+          </div>
+        ))}
+      </div>
       </div>
 
 
