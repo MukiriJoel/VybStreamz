@@ -1,5 +1,5 @@
 "use client";
-import Slider from "react-slick";
+import Slider, { Settings } from "react-slick";
 import { SlickSettings } from "@/types/slick";
 
 // ✅ Required slick styles
@@ -32,10 +32,9 @@ const AdSlider = ({ slides = [], delay = 4000,showDots=true, isLandScape=true }:
   };
 
 
-console.log(slides)
   const slidesToRender = slides.length > 0 ? slides : [defaultSlide];
 
-  const settings: SlickSettings = {
+  const settings: Settings = {
     dots: false,
     fade: true,
     infinite: true,
@@ -50,7 +49,6 @@ console.log(slides)
   };
 
   const goToSlide = (i: number) => {
-    console.log("slide", i);
     sliderRef.current?.slickGoTo(i);
   };
 
