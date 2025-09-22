@@ -13,21 +13,21 @@ const TrackList = ({title}:TrackListProps)=>{
               {[
                 {
                   title: "Ukichelewa",
-                  subtitle: "Edin Finky Ft Lilian Okemo",
+                  subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.",
                   duration: "4:33",
                 },
-                { title: "Way Up", subtitle: "Edin Finky", duration: "3:33" },
+                { title: "Way Up", subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.", duration: "3:33" },
                 {
                   title: "Sweet Mama",
-                  subtitle: "Edin Finky",
+                  subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.",
                   duration: "3:33",
                 },
                 {
                   title: "Facts",
-                  subtitle: "Edin Finky Ft Christine Okemo",
+                  subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.",
                   duration: "3:33",
                 },
-                { title: "Gere", subtitle: "Edin Finky", duration: "5:33" },
+                { title: "Gere", subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.", duration: "5:33" },
               ].map((episode, index) => (
                 <div
                   key={index}
@@ -37,7 +37,7 @@ const TrackList = ({title}:TrackListProps)=>{
                     <h4 className="font-semibold text-[14px] text-[#2C2C2C] dark:text-[#FFFFFF]">
                       {episode.title}
                     </h4>
-                    <p className="text-[12px] !font-normal text-[#4D4D4D] dark:text-white">
+                    <p className="text-[12px] !font-normal line-clamp-3 lg:text-[12px] lg:!font-normal text-[#4D4D4D] dark:text-white">
                       {episode.subtitle}
                     </p>
                   </div>
