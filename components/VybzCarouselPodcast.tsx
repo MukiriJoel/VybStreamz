@@ -31,6 +31,7 @@ export interface ICarousel {
   platformLogo?: string;
   cover?: string;
   backgroundImage?: string;
+  description?: string; // Added description field
 }
 
 interface VybzCarouselPodcastProps {
@@ -57,6 +58,7 @@ const VybzCarouselPodCast = ({
     streamingPlatform: "Spotify",
     platformLogo: "/logos/spotify.png",
     backgroundImage: "/images/albumCover.png",
+    description: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous web of secrets, crime, and betrayal. Set in modern Kenya, Mo Faya is a gritty drama where every choice sparks more fire."
   };
 
   slides = [
@@ -72,6 +74,7 @@ const VybzCarouselPodCast = ({
       platformLogo: "/logos/spotify.png",
       cover: "/images/podcastThumb.png",
       backgroundImage: "/images/sandwich2.jpg",
+      description: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous web of secrets, crime, and betrayal. Set in modern Kenya, Mo Faya is a gritty drama where every choice sparks more fire."
     },
     {
       id: 2,
@@ -85,6 +88,7 @@ const VybzCarouselPodCast = ({
       platformLogo: "/logos/spotify.png",
       cover: "/images/pod4.png",
       backgroundImage: "/images/sandwich2.jpg",
+      description: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous web of secrets, crime, and betrayal. Set in modern Kenya, Mo Faya is a gritty drama where every choice sparks more fire."
     },
     {
       id: 3,
@@ -98,6 +102,7 @@ const VybzCarouselPodCast = ({
       platformLogo: "/logos/spotify.png",
       cover: "/images/pod3.png",
       backgroundImage: "/images/sandwich2.jpg",
+      description: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous web of secrets, crime, and betrayal. Set in modern Kenya, Mo Faya is a gritty drama where every choice sparks more fire."
     },
   ];
 
@@ -156,7 +161,6 @@ const VybzCarouselPodCast = ({
     router.push('/profile?tab=My Favorites');
   }
 
-
   return (
     <>
       <div className="relative h-[90vh] w-full overflow-hidden">
@@ -181,103 +185,90 @@ const VybzCarouselPodCast = ({
               {/* Content Overlay */}
               <div className="relative z-10 pb-9 md:pb-15 px-3 md:px-8 h-full flex flex-col justify-end">
                
-                  <div className="flex flex-wrap items-end gap-6 mb-8">
-                    {/* Album Cover */}
-                    <div className="flex-shrink-0 flex items-center w-35 h-50 overflow-hidden">
-                      <img
-                        src={slide.cover}
-                        alt="DISKO Cover"
-                        className="w-full h-full rounded-lg object-cover shadow-lg"
-                      />
-                    </div>
-
-                    {/* Album Info Container */}
-                    <div className="flex-1 min-w-[150px] flex flex-col justify-end">
-                      {/* Main Album Info */}
-                      <div className="mb-0">
-                        <h1 className="text-[28px] font-extrabold text-white capitalize leading-tight">
+                {/* Main Content Layout */}
+                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+                  {/* Left Content - Album Info and Description */}
+                  <div className="flex-1 max-w-none lg:max-w-[60%]">
+                    {/* Album Cover and Basic Info */}
+                    <div className="flex items-end gap-4 md:gap-6 mb-4">
+                      {/* Album Cover - Hidden on mobile */}
+                      <div className="hidden md:flex flex-shrink-0 w-32 h-32 lg:w-40 lg:h-40 overflow-hidden">
+                        <img
+                          src={slide.cover}
+                          alt="Album Cover"
+                          className="w-full h-full rounded-lg object-cover shadow-lg"
+                        />
+                      </div>
+                      
+                      {/* Album Info */}
+                      <div className="flex-1">
+                        <h1 className="text-[24px] md:text-[32px] lg:text-[40px] font-bold text-white leading-tight mb-2">
                           {slide.title}
                         </h1>
-                        <p className="text-white text-[22px] mt-2 !font-normal leading-tight capitalize">
+                        <p className="text-white text-[14px] md:text-[16px] mb-2">
                           {slide.subtitle}
                         </p>
-                        <p className="text-white text-[12px] mt-2">
-                          {slide.category} | {slide.duration} | {slide.tracks} |{" "}
-                          {slide.genre}
+                        <p className="text-white/80 text-[12px] md:text-[14px]">
+                          {slide.category} | {slide.duration} | {slide.tracks} | {slide.genre}
                         </p>
                       </div>
+                    </div>
 
-                      {/* Stream On and Controls Row */}
-                      <div className="flex flex-wrap justify-between items-end py-2 w-full">
-                        {/* Stream On Section */}
-                        <div className="flex items-center mb-2">
-                          <p className="text-white text-[14px] uppercase tracking-wide mr-3">
-                            stream on:
-                          </p>
-                          <img
-                            src={slide.platformLogo}
-                            className="w-[45px] h-[45px]"
-                            alt={slide.streamingPlatform}
-                          />
-                        </div>
+                    {/* Description - New Addition */}
+                    {slide.description && (
+                      <div className="line-clamp-3 mb-6 max-w-none lg:max-w-[85%]">
+                        <p className="text-white/90 text-[14px] md:text-[16px] leading-relaxed">
+                          {slide.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
 
-                        {/* <div className="flex flex-col flex-wrap items-end gap-4">
-                          
-                          <div className="flex items-center gap-3">
-                            <Button className="bg-[#2C2C2C] hover:bg-white dark:bg-[#2C2C2C] text-white px-4 py-2 rounded-[5px] text-xs backdrop-blur-sm border border-white/10 cursor-pointer">
-                              <MdOutlineVideocam className="mr-1" />
-                              Switch To Video
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="text-white border-2 rounded-full cursor-pointer w-10 h-10"
-                            >
-                              <HiOutlineSpeakerXMark />
-                            </Button>
-                          </div> 
-                        </div> */}
+                  {/* Right Content - Stream On */}
+                  <div className="flex-shrink-0">
+                    <div className="flex flex-col items-start lg:items-end">
+                      <div className="flex items-center gap-3 mb-4">
+                        <p className="text-white text-[14px] md:text-[16px] uppercase tracking-wider">
+                          STREAM ON:
+                        </p>
+                        <img 
+                          src={slide.platformLogo} 
+                          className="w-[40px] h-[40px] md:w-[50px] md:h-[50px]" 
+                          alt={slide.streamingPlatform} 
+                        />
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Action Buttons */}
-                  {/* Action Buttons */}
-                  <div className="flex gap-4 justify-between flex-wrap">
-                    <div className="flex gap-4 mx-auto !sm:ml-0 md:mx-0">
-                      <Button
-                        onClick={() => onSubscribeClick()}
-                        className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer"
-                      >
-                        Subscribe
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="border-white/20 text-xs text-white !bg-[#2C2C2C] hover:text-white px-6 h-10 rounded-full hover:!bg-[#333333] w-40 cursor-pointer"
-                          onClick={()=>onSaveClick()}
-                      >
-                        <Bookmark className="h-4 w-4 mr-2" />
-                        Save
-                      </Button>
-                    </div>
-
-                    <div className="flex items-center gap-4 mx-auto md:mx-0 md:pr-10">
-                      {/* Custom dots */}
-                      <CarouselDots
-                        slides={slides}
-                        goToSlide={goToSlide}
-                        activeIndex={activeIndex}
-                      />
-                      {/* <Button
-                    variant="ghost"
-                    size="icon"
-                    className="text-white border-2 rounded-full cursor-pointer"
-                  >
-                    <HiOutlineSpeakerXMark />
-                  </Button> */}
-                    </div>
+                {/* Action Buttons */}
+                <div className="flex gap-4 justify-between flex-wrap">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mx-auto sm:mx-0 md:mx-0">
+                    <Button
+                      onClick={() => onSubscribeClick()}
+                      className="bg-[#C62676] hover:bg-[#e91e63]/90 text-white px-8 h-12 rounded-full font-semibold text-sm w-full sm:w-auto cursor-pointer"
+                    >
+                      Subscribe
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="border-white/20 text-white !bg-[#2C2C2C] hover:!bg-[#333333] hover:text-white px-6 h-12 rounded-full text-sm w-full sm:w-auto cursor-pointer"
+                      onClick={()=>onSaveClick()}
+                    >
+                      <Bookmark className="h-4 w-4 mr-2" />
+                      Save
+                    </Button>
                   </div>
-               
+
+                  <div className="flex items-center gap-4 mx-auto md:mx-0 md:pr-10">
+                    {/* Custom dots */}
+                    <CarouselDots
+                      slides={slides}
+                      goToSlide={goToSlide}
+                      activeIndex={activeIndex}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           ))}
