@@ -56,6 +56,19 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(1);
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Autoplay effect - runs once when component mounts
   useEffect(() => {
@@ -231,7 +244,24 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
     }
   };
 
-  const handleVideoClick = () => {
+  // Enhanced click handler to ensure play/pause works anywhere on the video area
+  const handleContainerClick = (e: React.MouseEvent) => {
+    // Don't trigger play/pause if clicking on controls or interactive elements
+    const target = e.target as HTMLElement;
+    
+    // Check if the click is on a button, input, or other interactive element
+    if (
+      target.tagName === 'BUTTON' ||
+      target.tagName === 'INPUT' ||
+      target.closest('button') ||
+      target.closest('.seek-bar') ||
+      target.closest('[role="slider"]') ||
+      target.classList.contains('no-video-click')
+    ) {
+      return; // Don't trigger play/pause
+    }
+
+    // Otherwise, toggle play/pause
     handlePlayPause();
   };
 
@@ -316,8 +346,31 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
   const toggleFullscreen = async () => {
     if (!document.fullscreenElement) {
       await containerRef.current?.requestFullscreen();
+      
+      // Request landscape orientation on mobile devices when entering fullscreen
+      if (isMobile && screen.orientation && "lock" in screen.orientation) {
+  try {
+    await (screen.orientation as any).lock('landscape');
+  } catch (error) {
+    // Fallback: try to lock to natural landscape orientations
+    try {
+      await (screen.orientation as any).lock('landscape-primary');
+    } catch (fallbackError) {
+      console.log('Orientation lock not supported or failed:', fallbackError);
+    }
+  }
+}
     } else {
       await document.exitFullscreen();
+      
+      // Unlock orientation when exiting fullscreen on mobile
+      if (isMobile && screen.orientation && screen.orientation.unlock) {
+        try {
+          screen.orientation.unlock();
+        } catch (error) {
+          console.log('Orientation unlock failed:', error);
+        }
+      }
     }
   };
 
@@ -355,15 +408,15 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
+        onClick={handleContainerClick}
       >
         {/* Video element */}
        <video
             ref={videoRef}
-            data-testid="video-player" // ✅ added for tests
+            data-testid="video-player"
             className={`object-contain ${
               isFullscreen ? "w-screen h-screen" : "w-full h-full"
             }`}
-            onClick={handleVideoClick}
             onEnded={handleVideoEnded}
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
@@ -379,7 +432,7 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
 
         {/* Poster overlay when paused for 4 seconds */}
         {showPosterOverlay && !isPlaying && (
-          <div className="absolute inset-0 transition-opacity duration-500">
+          <div className="absolute inset-0 transition-opacity duration-500 pointer-events-none">
             <img
               src="/images/mofaya.png"
               alt="Movie Poster"
@@ -390,55 +443,92 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         )}
 
         {/* Video Title & Description */}
-        <div
-          className={`absolute pt-2 mb-25  md:w-full top-[19%] sm:top-[22%] md:top-[30%] lg:!top-[30%] ml-4 md:ml-8 transition-opacity duration-300 ${
-            showContent
-              ? isFullscreen
-                ? "opacity-100 top-[33%] md:!top-[43%] lg:!top-[43%]" // Different positioning when fullscreen
-                : "opacity-100 top-[10%] md:top-[15%] lg:top-[32%]" // Normal positioning
-              : "opacity-0"
+       {/* Video Title & Description */}
+<div
+  className={`absolute pt-5 mb-25 md:w-full top-[44%] sm:top-[22%] md:top-[30%] lg:!top-[30%] ml-4 md:ml-8 transition-opacity duration-300 no-video-click pointer-events-auto ${
+    showContent
+      ? isFullscreen
+        ? "opacity-100 top-[33%] md:!top-[43%] lg:!top-[43%]"
+        : "opacity-100 top-[10%] md:top-[15%] lg:top-[32%]"
+      : "opacity-0"
+  }`}
+>
+  <div className="flex-1 pb-2 md:pb-1 w-[50%]">
+    <h1 className="text-[28px] font-extrabold text-white capitalize">
+      Mofaya
+    </h1>
+    <p className="text-white text-[14px] font-semibold mt-2">
+      Movie | 16 Yrs+
+    </p>
+    <p className="text-white line-clamp-3 text-[12px] pt-5 lg:text-[12px] lg:max-w-md lg:pt-1">
+      A young woman moves in with her boyfriend for a fresh start—only
+      to get pulled into a dangerous world of secrets, crime, and
+      betrayal. Set in modern Kenya, Mo-Faya is a gritty drama where
+      every choice sparks more fire.
+    </p>
+  </div>
+
+  {/* Cast Section */}
+  <CastDisplay />
+
+  {/* View More Button */}
+  <button
+    className="text-[#C62676] underline text-sm font-semibold mt-2 pointer-events-auto"
+    onClick={(e) => {
+      e.stopPropagation(); // prevent triggering play/pause
+      onViewMoreClick();
+    }}
+  >
+    View More
+  </button>
+
+  <div className="flex pt-1 items-center pr-10">
+    <p className="text-white text-lg uppercase tracking-wide">
+      stream on:
+    </p>
+    <img src={"/logos/bazeLg.png"} className="w-[45px] h-[45px] ml-2" />
+  </div>
+
+  <div className="gap-4 justify-between flex-wrap pt-4 mb-6 md:pb-1 md:mb-0">
+    <div className="flex gap-4 mx-auto !sm:ml-0 md:mx-0">
+      <Button className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
+        Subscribe
+      </Button>
+      <Button
+        variant="outline"
+        className="border-white/20 text-xs text-white !bg-[#2C2C2C] hover:!bg-[#333333] hover:text-white px-6 h-10 rounded-full bg-[#2C2C2C]  w-40 cursor-pointer"
+        onClick={(e) => {
+          e.stopPropagation();
+          onSaveClick();
+        }}
+      >
+        <Bookmark className="h-4 w-4 mr-2" />
+        Save
+      </Button>
+    </div>
+  </div>
+</div>
+
+        {/* Mobile Fullscreen Toggle Button - Bottom Right */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFullscreen();
+          }}
+          className={`cursor-pointer absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#2C2C2C]/80 hover:!bg-[#333333] transition-all duration-300 md:hidden ${
+            (showControls && isHovered) || isDragging || showContent
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           }`}
         >
-          <div className="flex-1 pb-5 md:pb-1 w-[50%]">
-            <h1 className="text-[28px] font-extrabold text-white capitalize">
-              Mofaya
-            </h1>
-            <p className="text-white text-[14px] font-semibold mt-2">
-              Movie | 16 Yrs+
-            </p>
-            <p className="text-white text-[12px] max-w-md pt-1">
-              A young woman moves in with her boyfriend for a fresh start—only
-              to get pulled into a dangerous world of secrets, crime, and
-              betrayal. Set in modern Kenya, Mo-Faya is a gritty drama where
-              every choice sparks more fire.
-            </p>
-          </div>
-          {/* cast */}
-           <CastDisplay/>
-          <div className="flex pt-1 items-center pr-10 cursor-pointer">
-            <p className="text-white text-lg uppercase tracking-wide">
-              stream on:
-            </p>
-
-            <img src={"/logos/bazeLg.png"} className="w-[45px] h-[45px] ml-2" />
-          </div>
-
-          <div className=" gap-4 justify-between flex-wrap pt-4 mb-6 md:pb-1 md:mb-0">
-            <div className="flex gap-4 mx-auto !sm:ml-0 md:mx-0">
-              <Button className="bg-[#C62676] text-xs hover:bg-[#e91e63]/90 text-white px-8 h-10 rounded-full font-semibold w-40 cursor-pointer">
-                Subscribe
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white/20 text-xs text-white !bg-[#2C2C2C] hover:!bg-[#333333] hover:text-white px-6 h-10 rounded-full bg-[#2C2C2C]  w-40 cursor-pointer"
-                onClick={() => onSaveClick()}
-              >
-                <Bookmark className="h-4 w-4 mr-2" />
-                Save
-              </Button>
-            </div>
-          </div>
-        </div>
+          {isFullscreen ? (
+            <Minimize className="h-5 w-5 text-white" />
+          ) : (
+            <Maximize className="h-5 w-5 text-white" />
+          )}
+        </Button>
 
       
        
@@ -482,10 +572,13 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
               onMouseLeave={hideVolume}
             >
               <Button
-                  aria-label="Volume" // ✅ added for tests
+                  aria-label="Volume"
                   variant="ghost"
                   size="icon"
-                  onClick={() => setIsMuted(!isMuted)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMuted(!isMuted);
+                  }}
                   className="cursor-pointer w-10 h-10 rounded-full bg-[#2C2C2C] hover:!bg-[#333333]"
                 >
                   {isMuted || volume === 0 ? (
@@ -523,10 +616,13 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
             <div className="flex items-center space-x-4 ml-4">
               {/* Play/Pause Button */}
               <Button
-                  aria-label={isPlaying ? "Pause" : "Play"} // ✅ added for tests
+                  aria-label={isPlaying ? "Pause" : "Play"}
                   variant="ghost"
                   size="icon"
-                  onClick={handlePlayPause}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePlayPause();
+                  }}
                   className="cursor-pointer w-12 h-12 rounded-full bg-[#2C2C2C] hover:!bg-[#333333]"
                 >
                   {isPlaying ? (
@@ -540,26 +636,15 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={handleSkip}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleSkip();
+                }}
                 className="cursor-pointer w-10 h-10 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333] "
               >
                 <SkipForward className="h-5 w-5 text-white" />
               </Button>
             </div>
-
-            {/* Fullscreen Button */}
-            {/* <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleFullscreen}
-            className="w-10 h-10 rounded-full dark:bg-[#2C2C2C]  hover:bg-[#333333] "
-          >
-            {isFullscreen ? (
-              <Minimize className="h-5 w-5 text-white" />
-            ) : (
-              <Maximize className="h-5 w-5 text-white" />
-            )}
-          </Button> */}
           </div>
         </div>
 
@@ -567,7 +652,10 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         <Button
           variant="ghost"
           size="icon"
-          onClick={handlePlayPause}
+          onClick={(e) => {
+            e.stopPropagation();
+            handlePlayPause();
+          }}
           className={`cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333]  transition-all duration-300 ${
             (isHovered && showControls) || !isPlaying
               ? "opacity-100 pointer-events-auto"
@@ -581,13 +669,15 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
           )}
         </Button>
 
-        {/* Fullscreen toggle button - only show when not in fullscreen and content is visible */}
-
+        {/* Fullscreen toggle button - Bottom Right (Desktop only) */}
         <Button
           variant="ghost"
           size="icon"
-          onClick={toggleFullscreen}
-          className={`cursor-pointer absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333]  transition-all duration-300 ${
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFullscreen();
+          }}
+          className={`cursor-pointer pl-3 absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333]  transition-all duration-300 hidden md:block ${
             (showControls && isHovered) || isDragging || showContent
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -603,7 +693,7 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         <div
           className={`absolute bottom-67 sm:bottom-35 md:bottom-12 lg:bottom-32 xl:bottom-36 right-2 sm:right-4 
     flex flex-col sm:flex-col md:flex-col lg:flex-row space-y-3 sm:space-y-0 sm:space-x-3 md:space-x-4 lg:space-x-6 
-    transition-all duration-300 ${
+    transition-all duration-300 pointer-events-auto ${
       showContent
         ? "opacity-100 pointer-events-auto  md:bottom-32 lg:bottom-30"
         : "opacity-0 pointer-events-none"
@@ -615,7 +705,10 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
                 Trailer {trailer}
               </div>
               <div
-                onClick={() => handleTrailerClick(trailer)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleTrailerClick(trailer);
+                }}
                 className="w-24 h-18 sm:w-40 sm:h-24 md:w-32 md:h-24 lg:w-40 lg:h-28 
           bg-[url('/images/mofaya.png')] bg-cover bg-center 
           rounded-lg sm:rounded-xl 
