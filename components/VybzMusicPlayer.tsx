@@ -396,7 +396,7 @@ export default function VybzMusicPlayer({
 
         {/* Left Side Content - Album Info */}
         <div
-          className={`absolute w-full left-2 pr-4 md:left-8 top-[70%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
+          className={`absolute w-full left-2 pr-4 md:left-8 top-[77%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
             showContent ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -425,7 +425,7 @@ export default function VybzMusicPlayer({
 
                   {/* Description - New Addition */}
                 
-                  <p className="text-white/90 text-[14px] line-clamp-2 md:text-[16px] leading-relaxed">
+                  <p className="text-white/90 text-[12px] line-clamp-2  max-w-md leading-relaxed">
                     {description}
                   </p>
               
@@ -470,7 +470,7 @@ export default function VybzMusicPlayer({
           }`}
         >
           {/* Right Side Controls */}
-          <div className="flex flex-col flex-wrap items-end gap-4 mt-[60px] md:mt-0 lg:mt-0">
+          <div className="flex flex-col flex-wrap items-end gap-4 mt-[95px] md:mt-0 lg:mt-0">
             {/* Audio/Video Controls */}
             <div className="flex items-center gap-3">
               <Button className="bg-[#2C2C2C] hover:!bg-[#333333] dark:bg-[#2C2C2C] text-white px-4 py-2 rounded-[5px] text-xs  border border-white/10 cursor-pointer">
