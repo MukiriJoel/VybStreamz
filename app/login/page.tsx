@@ -30,7 +30,7 @@ export default function LoginForm() {
   }
 
   const handleForgotPassword = () => {
-    router.push("/verifyForgotEmail")
+    router.push("/forgotPassword")
   }
 
   const GoToHome = () =>{
@@ -172,7 +172,7 @@ export default function LoginForm() {
                 <div className="text-left">
                   <button 
                     onClick={handleForgotPassword}
-                    className="text-xs sm:text-sm text-[#333333] dark:text-white font-medium hover:text-[#c62676] transition-colors duration-200"
+                    className="cursor-pointer text-xs sm:text-sm text-[#333333] dark:text-white font-medium hover:text-[#c62676] transition-colors duration-200"
                   >
                     Forgot Password?
                   </button>
@@ -201,7 +201,7 @@ export default function LoginForm() {
                   {"Don't have an account "}
                   <button 
                     onClick={handleBackToCreate}
-                    className="text-[#c62676] underline hover:no-underline font-medium"
+                    className="cursor-pointer text-[#c62676] underline hover:no-underline font-medium"
                   >
                     Sign-Up
                   </button>
