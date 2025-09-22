@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useRouter, useSearchParams } from "next/navigation"
 import { MdArrowBack } from "react-icons/md"
+import AdSlider from "@/components/AdSlider"
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("")
@@ -29,12 +30,61 @@ export default function ForgotPasswordPage() {
     router.push('/')
   }
 
+   const imgSlides = [
+    {
+      id: 1,
+      image: "/splash/1.webp",
+    },
+     {
+      id: 2,
+      image: "/splash/2.webp",
+    },
+     {
+      id: 3,
+      image: "/splash/3.webp",
+    }, {
+      id: 4,
+      image: "/splash/4.webp",
+    }, {
+      id: 5,
+      image: "/splash/5.webp",
+    }, {
+      id: 6,
+      image: "/splash/6.webp",
+    }, {
+      id: 7,
+      image: "/splash/7.webp",
+    }, {
+      id: 8,
+      image: "/splash/8.webp",
+    }, {
+      id: 9,
+      image: "/splash/9.webp",
+    }, {
+      id: 10,
+      image: "/splash/10.webp",
+    }, {
+      id: 11,
+      image: "/splash/11.webp",
+    }, {
+      id: 12,
+      image: "/splash/12.webp",
+    },
+    {
+      id: 13,
+      image: "/splash/13.webp",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] transition-colors duration-200">
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Image Section - Hidden on mobile and tablet, visible on desktop */}
          <div className="hidden lg:flex lg:w-1/2 items-start justify-start p-8">
-          <img className="max-w-full max-h-[90vh] object-contain" src="/images/create.png" alt="" />
+          {/* <img className="max-w-full max-h-[90vh] object-contain" src="/images/create.png" alt="" /> */}
+         <div className="max-w-full h-full flex-col md:scale-75 mt-[-12%] !items-start object-contain overflow-hidden">
+            <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
+          </div>
         </div>
    
        

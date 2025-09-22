@@ -30,6 +30,21 @@ export default function Home() {
 
     }
 
+    const adSlides = [
+    {
+      id: 1,
+      image: "/images/safAd.png",
+    },
+    {
+      id: 2,
+      image: "/images/safAd2.png",
+    },
+    {
+      id: 3,
+      image: "/images/safAd3.png",
+    },
+  ];
+
   return (
     <>
       <div className="bg-[#F2F2F2] dark:bg-[#141414]">
@@ -86,7 +101,7 @@ export default function Home() {
             {/*AD slider */}
             <section>
               <SectionHeader  viewButton={false} title="amazing deals for you" route=''/>
-              <AdSlider/>
+              <AdSlider slides={adSlides}/>
             </section>
               
 
