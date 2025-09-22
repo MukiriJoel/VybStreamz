@@ -7,6 +7,9 @@ import { ThemeProvider } from "@/lib/context/ThemeContext";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "@/store";
+// ✅ Required slick styles
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // export const metadata: Metadata = {
 //   title: "Vybz Streams",

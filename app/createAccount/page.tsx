@@ -125,7 +125,7 @@ export default function CreateAccountPage() {
         {/* Image Section - Hidden on mobile, visible on large screens */}
         <div className="hidden lg:flex lg:w-1/2 items-start justify-center  p-8">
           {/* <img className="max-w-full max-h-[90vh] object-contain" src="/images/create.png" alt="" /> */}
-          <div className="max-w-full h-full md:scale-75 mt-[-15%]  object-contain overflow-hidden">
+          <div className="w-full h-full md:scale-75 mt-[-15%]  object-contain ">
             <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
           </div>
      

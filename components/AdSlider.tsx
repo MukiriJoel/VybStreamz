@@ -3,8 +3,7 @@ import Slider, { Settings } from "react-slick";
 import { SlickSettings } from "@/types/slick";
 
 // ✅ Required slick styles
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import { useRef, useState } from "react";
 import CarouselDots from "./CarouselDots";
 
@@ -45,6 +44,7 @@ const AdSlider = ({ slides = [], delay = 4000,showDots=true, isLandScape=true }:
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    lazyLoad: 'ondemand', 
     // afterChange: (i: number) => setActiveIndex(i),
   };
 
@@ -52,8 +52,8 @@ const AdSlider = ({ slides = [], delay = 4000,showDots=true, isLandScape=true }:
     sliderRef.current?.slickGoTo(i);
   };
 
-  console.log('slidesToRender:', slidesToRender);
-
+  // console.log('AdSlider rendering with:', { slides, showDots, isLandScape });
+// console.log('slidesToRender:', slidesToRender);
 
   return (
     <>

@@ -98,7 +98,7 @@ export default function PasswordResetForm() {
         {/* Image Section - Hidden on mobile, visible on large screens */}
          <div className="hidden lg:flex lg:w-1/2 items-start justify-center p-8">
           {/* <img className="max-w-full max-h-[90vh] object-contain" src="/images/create.png" alt="" /> */}
-        <div className="max-w-full h-full flex-col md:scale-75 mt-[-15%] !items-start object-contain overflow-hidden">
+        <div className="max-w-full h-full flex-col md:scale-75 mt-[-15%] !items-start object-contain">
             <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
           </div>
         </div>
