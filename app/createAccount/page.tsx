@@ -138,7 +138,7 @@ export default function CreateAccountPage() {
           
           {/* Form Content */}
           <div className="flex-1 flex-col items-center justify-center mx-auto p-4 md:p-8 lg:pt-0">
-            <div className="flex pt-10 items-center max-w-md w-full justify-between  gap-4">
+          <div className="flex pt-10 items-center max-w-md w-full justify-between  gap-4">
             <button 
               onClick={() => router.back()}
               className="cursor-pointer flex items-center mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"

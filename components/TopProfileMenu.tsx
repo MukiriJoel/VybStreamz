@@ -35,7 +35,8 @@ const TopProfileMenu = ({closeProfileModal}: TopProfileMenuProps) => {
     }
 
     const onCreateClick = () =>{
-      router.push('/createAccount')
+      router.push('/createAccount');
+      closeProfileModal();
     }
 
     const handleLogoutClick = (e: React.MouseEvent) => {

@@ -104,7 +104,7 @@ export default function VerifyEmail() {
 
             {/* Verify Button */}
             <Button
-              className="!w-md h-14 bg-[#c62676] hover:bg-[#a91e63] text-white text-lg font-semibold rounded-full mb-6"
+              className="w-sm md:w-md h-14 bg-[#c62676] hover:bg-[#a91e63] text-white text-lg font-semibold rounded-full mb-6"
               onClick={handleVerify}
             >
               Verify
