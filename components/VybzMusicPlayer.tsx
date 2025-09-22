@@ -396,7 +396,7 @@ export default function VybzMusicPlayer({
 
         {/* Left Side Content - Album Info */}
         <div
-          className={`absolute w-full left-2 pr-4 md:left-8 top-[73%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
+          className={`absolute w-full left-2 pr-4 md:left-8 top-[70%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
             showContent ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -422,6 +422,13 @@ export default function VybzMusicPlayer({
                     {subtitle}
                   </p>
                   <p className="text-white text-[10px] md:text-[12px] mt-2">{albumInfo}</p>
+
+                  {/* Description - New Addition */}
+                
+                  <p className="text-white/90 text-[14px] line-clamp-2 md:text-[16px] leading-relaxed">
+                    {description}
+                  </p>
+              
                 </div>
 
                 {/* Stream On and Controls Row */}

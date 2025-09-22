@@ -193,6 +193,7 @@ const PodcastPlayer: React.FC = () => {
           title="sandwich podcast"
           subtitle="Kodong Klan"
           albumInfo="Album | 1hr 45min | 10 episodes"
+          description="A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal."
           platformLogo="/logos/spotify.png"
         />
 
