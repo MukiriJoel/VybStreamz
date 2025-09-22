@@ -65,7 +65,7 @@ const AdSlider = ({ slides = [], delay = 4000,showDots=true, isLandScape=true }:
       >
         {slidesToRender.map((slide, index) => (
           <div className="relative " key={slide.id}>
-            <div className={`w-full ${isLandScape?`aspect-video`:`h-full w-full`}  bg-gradient-to-r rounded-2xl overflow-hidden `}>
+            <div className={`w-full ${isLandScape?`aspect-video`:`h-full w-full`}  bg-gradient-to-r ${isLandScape?`rounded-2xl`:`rounded-4xl`} overflow-hidden `}>
               <img
                 src={slide.image}
                 alt="Advertisement"
