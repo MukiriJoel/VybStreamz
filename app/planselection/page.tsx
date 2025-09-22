@@ -18,9 +18,9 @@ export default function PlanSelection() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-2 md:px-4 pt-12 mt-18 max-w-8xl lg:mx-4">
+      <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] px-2 md:px-4 pt-12 mt-18 max-w-8xl lg:px-6">
        
-          <div className="flex w-full flex-col lg:flex-row items-center gap-20  mx-auto my-auto">
+          <div className="flex w-full flex-col lg:flex-row items-center gap-10  mx-auto my-auto">
             <div className="flex-1 hidden lg:flex w-full items-center bg-white dark:bg-[#2C2C2C] flex justify-center rounded-lg p-8 h-auto md:h-120 shadow-sm">
               <div className="relative">
                 <img
@@ -31,7 +31,7 @@ export default function PlanSelection() {
               </div>
             </div>
 
-            <div className="flex-[2] w-full ">
+            <div className="flex-1 w-full ">
               <div className="w-full bg-[#ffffff] dark:bg-[#2C2C2C] rounded-lg px-7 py-9 h-auto md:h-120 shadow-sm">
                 <h2 className="text-3xl font-bold text-[#333333] dark:text-white mb-8 text-center">
                   Choose your Preferred Plan
