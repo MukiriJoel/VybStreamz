@@ -620,7 +620,7 @@ export default function VybzMusicPlayer({
           variant="ghost"
           size="icon"
           onClick={handlePlayPause}
-          className={`cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333] transition-all duration-300 ${
+          className={`cursor-pointer bottom-8 md:bottom-16   absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11 h-11 lg:w-16 lg:h-16 rounded-full bg-[#2C2C2C]  hover:!bg-[#333333] transition-all duration-300 ${
             (isHovered && showControls) || !isPlaying
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
