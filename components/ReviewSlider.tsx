@@ -79,7 +79,7 @@ const ReviewSlider = () =>{
               </div>
               
               <div className="pt-3">
-                <p className="!text-base min-h-[60px] !leading-[120%] py-1 pr-2 !font-normal line-clamp-3 text-[#2C2C2C] dark:text-[#FFFFFF] text-left mb-3 capitalize">
+                <p className="!text-base !leading-[120%] py-1 pr-2 !font-normal line-clamp-3 text-[#2C2C2C] dark:text-[#FFFFFF] text-left mb-3 capitalize">
                   {item.description}
                 </p>
               </div>
