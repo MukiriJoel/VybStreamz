@@ -52,6 +52,9 @@ const AdSlider = ({ slides = [], delay = 4000,showDots=true, isLandScape=true }:
     sliderRef.current?.slickGoTo(i);
   };
 
+  console.log('slidesToRender:', slidesToRender);
+
+
   return (
     <>
       <Slider
@@ -73,17 +76,19 @@ const AdSlider = ({ slides = [], delay = 4000,showDots=true, isLandScape=true }:
           </div>
         ))}
       </Slider>
-        <div className="flex items-center justify-center mt-1">
+        
               {showDots &&(
+                <div className="flex items-center justify-center mt-1">
                 <CarouselDots
                 slides={slidesToRender}
                 goToSlide={goToSlide}
                 activeIndex={activeIndex}
               /> 
+                  </div>
              
            )}
               
-            </div>
+        
 
       <style jsx global>{`
         @media (max-width: 768px) {
