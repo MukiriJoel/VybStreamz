@@ -406,7 +406,7 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
             <p className="text-white text-[14px] font-semibold mt-2">
               Movie | 16 Yrs+
             </p>
-            <p className="text-white text-[12px] max-w-md pt-1">
+            <p className="text-white !line-clamp-3 text-[12px] max-w-md pt-1">
               A young woman moves in with her boyfriend for a fresh start—only
               to get pulled into a dangerous world of secrets, crime, and
               betrayal. Set in modern Kenya, Mo-Faya is a gritty drama where
