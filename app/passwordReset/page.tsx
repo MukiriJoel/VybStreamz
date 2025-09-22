@@ -98,7 +98,7 @@ export default function PasswordResetForm() {
         {/* Image Section - Hidden on mobile, visible on large screens */}
          <div className="hidden lg:flex lg:w-1/2 items-start justify-center p-8">
           {/* <img className="max-w-full max-h-[90vh] object-contain" src="/images/create.png" alt="" /> */}
-        <div className="max-w-full h-full flex-col md:scale-75 mt-[-15%] !items-start object-contain">
+        <div className="w-full h-full flex-col md:scale-75 mt-[-15%] !items-start object-contain">
             <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function PasswordResetForm() {
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full h-10 px-4 py-3 border-2 border-[#c62676] rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
+                  className="w-full h-10 px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
                   placeholder=""
                 />
               </div>
@@ -155,7 +155,7 @@ export default function PasswordResetForm() {
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="w-full h-10 px-4 py-3 border-2 border-[#c62676] rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
+                  className="w-full h-10 px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-[#c62676] bg-white dark:bg-[#2A2A2A] dark:text-[#FFFFFF] dark:placeholder-[#888888]"
                   placeholder=""
                 />
               </div>

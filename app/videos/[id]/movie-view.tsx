@@ -39,8 +39,8 @@ export default function MovieView(){
     <>
       <VybzVideoPlayer videoSrc = "/videos/MofayaTrailer.mp4"/>
       {/* Trending Section */}
-      <main className="bg-[#F2F2F2] dark:bg-[#141414]">
-        <section className="px-2 pb-3 pt-8 ">
+      <main className="bg-[#F2F2F2] dark:bg-[#141414] px-2 md:px-4 lg:px-6">
+        <section className=" pb-3 pt-8 ">
            <SectionHeader  viewButton={true} title="similar videos" route="/videos"/>
           <VideoSlider />
         </section>

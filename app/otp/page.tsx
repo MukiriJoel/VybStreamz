@@ -118,7 +118,7 @@ export default function VerifyEmail() {
           
 
           <div className="w-full pt-12  md:pt-2 mx-auto">
-            <div className="flex items-center w-full justify-between max-w-md mb-5 md:pt-6 lg:pt-8 ">
+            <div className="flex items-center w-full justify-between max-w-md mx-auto md:mx-auto lg:mx-0 mb-5 md:pt-6 lg:pt-8 ">
             <button 
               onClick={() => router.back()}
               className="cursor-pointer flex items-center !pl-0 mr-2 md:mr-4 text-[#2C2C2C] dark:text-[#FFFFFF] hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
