@@ -396,7 +396,7 @@ export default function VybzMusicPlayer({
 
         {/* Left Side Content - Album Info */}
         <div
-          className={`absolute w-full left-2 pr-4 md:left-8 top-[77%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
+          className={`absolute w-full left-2 pr-4 md:left-8 top-[77%] md:top-[65%] transform -translate-y-1/2 flex items-center space-x-6 transition-opacity duration-300 ${
             showContent ? "opacity-100" : "opacity-0"
           }`}
         >

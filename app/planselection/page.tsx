@@ -24,7 +24,7 @@ export default function PlanSelection() {
             <div className="flex-1 hidden lg:flex w-full items-center bg-white dark:bg-[#2C2C2C] flex justify-center rounded-lg p-8 h-auto md:h-120 shadow-sm">
               <div className="relative">
                 <img
-                  src="/images/baze_logo 1.png"
+                  src="/images/Baze_logo 1.png"
                   alt="Baze Logo"
                   className="w-80 h-80 object-contain"
                 />
