@@ -161,7 +161,7 @@ export default function VerifyEmail() {
             </Button>
 
             {/* Additional Options */}
-            <div className="text-center md:text-left mx-auto lg:ml-0 w-[70%] space-y-4">
+            <div className="text-center md:text-center lg:text-left mx-auto lg:ml-0 w-[70%] space-y-4">
               <button className="text-[#2C2C2C] dark:text-[#FFFFFF] underline">
                 Resend Code
               </button>
