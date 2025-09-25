@@ -155,35 +155,20 @@ export default function HomePage() {
               </div>
 
               {/* Payment Options */}
-              {/* <div className="flex lg:gap-2 gap-1 md:gap-2 pb-6 overflow-hidden">
-                {paymentMethods.map((method) => (
-                  <div
-                    key={method.id}
-                    className={`bg-[#E5E5E5] rounded-lg md:px-6 py-1.5 px-1 hover:border-pink-500 cursor-pointer ${
-                      selectedMethod === method.id
-                        ? "border-pink-500 bg-pink-50 shadow-md"
-                        : "border-gray-300"
-                    }`}
-                    onClick={() => setSelectedMethod(method.id as any)}
-                  >
-                    {method.component}
-                  </div>
-                ))}
-              </div> */}
+             
               <div className="mb-4">
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-8">
                   {paymentMethods.map((method) => (
                     <div
                       key={method.id}
                       className={`
-              rounded-lg p-2 bg-[#E5E5E5] cursor-pointer transition-all duration-200 
-              hover:shadow-lg  
-              ${
-                selectedMethod === method.id
-                  ? "border-2 border-pink-500 bg-pink-50 shadow-md"
-                  : "border-gray-200 hover:border-pink-300"
-              }
-            `}
+                        rounded-lg p-2 bg-[#E5E5E5] cursor-pointer transition-all duration-200 
+                        hover:shadow-lg  
+                        ${selectedMethod === method.id
+                                    ? "border-2 border-pink-500 bg-pink-50 shadow-md"
+                                    : "border-gray-200 hover:border-pink-300"
+                                  }
+                      `}
                       onClick={() => setSelectedMethod(method.id as any)}
                     >
                       <div className="flex flex-col items-center p-0">

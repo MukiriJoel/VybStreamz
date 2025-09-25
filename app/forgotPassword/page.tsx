@@ -80,9 +80,9 @@ export default function ForgotPasswordPage() {
     <div className="min-h-screen bg-[#F2F2F2] dark:bg-[#141414] transition-colors duration-200">
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Image Section - Hidden on mobile and tablet, visible on desktop */}
-         <div className="hidden lg:flex lg:w-1/2 items-start justify-start p-8">
+         <div className="hidden lg:flex h-[100vh] lg:w-1/2 items-start justify-start p-8">
           {/* <img className="max-w-full max-h-[90vh] object-contain" src="/images/create.png" alt="" /> */}
-         <div className="w-full h-full flex-col md:scale-75 mt-[-15%] !items-start object-contain">
+         <div className="w-full h-full flex-col md:scale-65 mt-[-16%] !items-start object-contain">
             <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
           </div>
         </div>

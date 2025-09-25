@@ -101,13 +101,13 @@ export default function VerifyEmail() {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row min-h-[calc(100vh-60px)]">
         {/* Image Section - Hidden on mobile, visible on large screens */}
-        <div className="hidden lg:flex lg:w-1/2 items-center justify-center p-8">
+        <div className="hidden lg:flex h-[100vh] lg:w-1/2 items-center justify-center p-8">
           {/* <img
             className="max-w-full max-h-[90vh] object-contain"
             src="/images/create.png"
             alt=""
           /> */}
-          <div className="w-full h-full md:scale-75 !mt-[-23%]  object-contain ">
+          <div className="w-full h-full md:scale-65 !mt-[-28%]  object-contain ">
             <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
           </div>
         </div>
