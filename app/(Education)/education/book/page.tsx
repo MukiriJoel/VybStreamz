@@ -26,6 +26,7 @@ export default function EducationListing() {
             platformLogo="/logos/bazeLg.png"
             title="rich dad poor dad"
             subtitle="robert kiyosaki"
+            description="A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous web of secrets, crime, and betrayal. Set in modern Kenya, Mo Faya is a gritty drama where every choice sparks more fire."
             
           />
           {/* Content Navigation */}

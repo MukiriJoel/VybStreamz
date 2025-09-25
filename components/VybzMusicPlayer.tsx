@@ -404,7 +404,7 @@ export default function VybzMusicPlayer({
           <div className="relative z-10 w-full h-full flex flex-col justify-end">
             <div className="flex flex-wrap items-end gap-6 mb-5 md:mb-8">
               {/* Album Cover */}
-              <div className="flex-shrink-0 flex items-center w-34 h-46 md:w-35 md:h-50 overflow-hidden">
+              <div className="flex-shrink-0 flex items-center mb-4 w-34 h-46 md:w-35 md:h-50 overflow-hidden">
                 <img
                   src={albumImage}
                   alt="DISKO Cover"
@@ -425,7 +425,7 @@ export default function VybzMusicPlayer({
 
                   {/* Description - New Addition */}
                 
-                  <p className="text-white/90 text-[12px] line-clamp-2  max-w-md leading-relaxed">
+                  <p className="text-white text-[12px] mt-1 line-clamp-3  max-w-md leading-relaxed">
                     {description}
                   </p>
               
