@@ -51,7 +51,7 @@ const subscriptions = [
 ];
 
 export default function ProfileContent() {
-  const [activeTab, setActiveTab] = useState("Subscriptions");
+  const [activeTab, setActiveTab] = useState("Account");
   const [showUnsubscribeModal, setShowUnsubscribeModal] = useState(false);
   const { isLoggedIn, logout } = useAuth();
   const router = useRouter();
