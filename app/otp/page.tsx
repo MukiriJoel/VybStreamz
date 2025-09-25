@@ -107,7 +107,7 @@ export default function VerifyEmail() {
             src="/images/create.png"
             alt=""
           /> */}
-          <div className="w-full h-full md:scale-65 !mt-[-28%]  object-contain ">
+          <div className="w-full h-full md:scale-65 !mt-[-31%]  object-contain ">
             <AdSlider slides={imgSlides} showDots={false} isLandScape={false}/>
           </div>
         </div>
