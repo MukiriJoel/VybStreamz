@@ -6,6 +6,8 @@ import { MdArrowForward } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import VybzMusicPlayer from "@/components/VybzMusicPlayer";
 import SectionHeader from "@/components/SectionHeader";
+import ReviewSlider from "@/components/ReviewSlider";
+import RatingsComponent from "@/components/ratings-section";
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function EducationListing() {
@@ -18,7 +20,7 @@ export default function EducationListing() {
         {/* Main Content */}
         <main className="">
           {/* <VybzCarouselEducation tabs={tabs} activeTab={activeTab} /> */}
-          <VybzMusicPlayer 
+          <VybzMusicPlayer
             audioSrc="/audio/podcast.mp3"
             bannerImage="/images/robert.png"
             albumImage="/images/robertSm.png"
@@ -27,7 +29,6 @@ export default function EducationListing() {
             title="rich dad poor dad"
             subtitle="robert kiyosaki"
             description="A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous web of secrets, crime, and betrayal. Set in modern Kenya, Mo Faya is a gritty drama where every choice sparks more fire."
-            
           />
           {/* Content Navigation */}
           {/* TABS */}
@@ -54,56 +55,51 @@ export default function EducationListing() {
           {activeTab === "E-Book" ? (
             <div className="py-2 px-2 md:px-4 lg:px-6 xl:px-6">
               {/* top ranked Section */}
-              
 
               {/* trending Section */}
               <div className="">
-                <SectionHeader title="trending" viewButton={true} route="/education"/>
+                <SectionHeader
+                  title="similar E-Books"
+                  viewButton={true}
+                  route="/education"
+                />
                 <EducationSlider></EducationSlider>
               </div>
-
-              {/* trending Section */}
-              <div className="">
-                 <SectionHeader title="engaging" viewButton={true} route="/education"/>
-                <div className="overflow-x-auto scrollbar-hide">
-                  <EducationSlider></EducationSlider>
-                </div>
-              </div>
-
-              {/* recent Section */}
-              <div className="">
-                 <SectionHeader title="recently updated" viewButton={true} route="/education"/>
-                <EducationSlider></EducationSlider>
-              </div>
+              <section>
+                <RatingsComponent />
+              </section>
+              <section>
+                <SectionHeader
+                  viewButton={true}
+                  title="user reviews"
+                  route={"/viewMore/ContentReview"}
+                />
+                <ReviewSlider />
+              </section>
             </div>
           ) : (
             <div className="py-2 px-2 md:px-4 lg:px-6 xl:px-6">
               {/* top ranked Section */}
               <div className="">
-                 <SectionHeader title="top ranked" viewButton={true} route="/education"/>
+                <SectionHeader
+                  title="similar Audio Books"
+                  viewButton={true}
+                  route="/education"
+                />
 
                 <EducationSlider></EducationSlider>
               </div>
-
-              {/* trending Section */}
-              <div className="">
-                 <SectionHeader title="trending" viewButton={true} route="/education"/>
-                <EducationSlider></EducationSlider>
-              </div>
-
-              {/* trending Section */}
-              <div className="">
-                 <SectionHeader title="engaging" viewButton={true} route="/education"/>
-                <div className="overflow-x-auto scrollbar-hide">
-                  <EducationSlider></EducationSlider>
-                </div>
-              </div>
-
-              {/* recent Section */}
-              <div className="">
-                 <SectionHeader title="recently updated" viewButton={true} route="/education"/>
-                <EducationSlider></EducationSlider>
-              </div>
+              <section>
+                <RatingsComponent />
+              </section>
+              <section>
+                <SectionHeader
+                  viewButton={true}
+                  title="user reviews"
+                  route={"/viewMore/ContentReview"}
+                />
+                <ReviewSlider />
+              </section>
             </div>
           )}
         </main>

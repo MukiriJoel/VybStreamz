@@ -31,9 +31,15 @@ import CastDisplay from "./CastDisplay";
 
 interface VybzVideoPlayerProps {
   videoSrc?: string;
+  hasCast?:boolean;
+  bannerImage?: string;
+   title?: string;
+    description?: string;
+     platformLogo?: string;
+     metadata?: string;
 }
 
-export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
+export default function VybzVideoPlayer({ videoSrc,hasCast,bannerImage,title,description,platformLogo,metadata }: VybzVideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showControls, setShowControls] = useState(true);
   const [showContent, setShowContent] = useState(true); // For hiding/showing trailers and description
@@ -381,7 +387,7 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         {showPosterOverlay && !isPlaying && (
           <div className="absolute inset-0 transition-opacity duration-500">
             <img
-              src="/images/mofaya.png"
+              src={bannerImage}
               alt="Movie Poster"
               className="w-full h-full object-cover"
             />
@@ -401,26 +407,28 @@ export default function VybzVideoPlayer({ videoSrc }: VybzVideoPlayerProps) {
         >
           <div className="flex-1 pb-5 md:pb-1 w-[50%]">
             <h1 className="text-[28px] font-extrabold text-white capitalize">
-              Mofaya
+              {title}
             </h1>
             <p className="text-white text-[14px] font-semibold mt-2">
-              Movie | 16 Yrs+
+              {metadata}
             </p>
             <p className="text-white !line-clamp-3 text-[12px] max-w-md pt-1">
-              A young woman moves in with her boyfriend for a fresh start—only
-              to get pulled into a dangerous world of secrets, crime, and
-              betrayal. Set in modern Kenya, Mo-Faya is a gritty drama where
-              every choice sparks more fire.
+              {description}
             </p>
           </div>
           {/* cast */}
-           <CastDisplay/>
+          {hasCast ?
+            <CastDisplay/>
+            :
+            <div className="py-9"></div>
+          }
+          
           <div className="flex pt-1 items-center pr-10 cursor-pointer">
             <p className="text-white text-lg uppercase tracking-wide">
               stream on:
             </p>
 
-            <img src={"/logos/bazeLg.png"} className="w-[45px] h-[45px] ml-2" />
+            <img src={platformLogo} className="w-[45px] h-[45px] ml-2" />
           </div>
 
           <div className=" gap-4 justify-between flex-wrap pt-4 mb-6 md:pb-1 md:mb-0">

@@ -1,33 +1,37 @@
 interface TrackListProps{
-    title:string;
+  heading:string  
+  title:string;
+    subtitle:string
 
 }
 
-const TrackList = ({title}:TrackListProps)=>{
+const TrackList = ({title,subtitle,heading}:TrackListProps)=>{
     return(
         <div className="bg-white dark:bg-[#2C2C2C] rounded-lg p-6 ">
             <h3 className="text-[14px] !font-extrabold text-[#4D4D4D] dark:text-white mb-6 capitalize">
-              {title}
+              {heading}
             </h3>
             <div className="space-y-4">
               {[
                 {
                   title: "Ukichelewa",
-                  subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.",
+                  subtitle: subtitle,
                   duration: "4:33",
                 },
-                { title: "Way Up", subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.", duration: "3:33" },
+                { title: "Way Up", 
+                  subtitle: subtitle, 
+                  duration: "3:33" },
                 {
                   title: "Sweet Mama",
-                  subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.",
+                  subtitle: subtitle,
                   duration: "3:33",
                 },
                 {
                   title: "Facts",
-                  subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.",
+                  subtitle: subtitle,
                   duration: "3:33",
                 },
-                { title: "Gere", subtitle: "A young woman moves in with her boyfriend for a fresh start—only to get pulled into a dangerous world of secrets, crime, and betrayal.", duration: "5:33" },
+                { title: "Gere", subtitle: subtitle, duration: "5:33" },
               ].map((episode, index) => (
                 <div
                   key={index}

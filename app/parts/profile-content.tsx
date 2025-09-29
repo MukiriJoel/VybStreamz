@@ -244,9 +244,9 @@ export default function ProfileContent() {
                   <th className="text-left py-4 px-4 font-normal text-[#2C2C2C] dark:text-[#FFFFFF]">
                     Amount
                   </th>
-                  <th className="text-left py-4 px-4 font-normal text-[#2C2C2C] dark:text-[#FFFFFF]">
+                  {/* <th className="text-left py-4 px-4 font-normal text-[#2C2C2C] dark:text-[#FFFFFF]">
                     Expiry Date
-                  </th>
+                  </th> */}
                   <th className="text-left py-4 px-4 font-normal text-[#2C2C2C] dark:text-[#FFFFFF]">
                     Status
                   </th>
@@ -284,9 +284,9 @@ export default function ProfileContent() {
                     <td className="py-6 px-4 text-[#2C2C2C] group-hover:text-white dark:text-[#FFFFFF] font-normal">
                       {subscription.amount}
                     </td>
-                    <td className="py-6 px-4 text-[#2C2C2C] group-hover:text-white dark:text-[#FFFFFF]">
+                    {/* <td className="py-6 px-4 text-[#2C2C2C] group-hover:text-white dark:text-[#FFFFFF]">
                       {subscription.expiryDate}
-                    </td>
+                    </td> */}
                     <td className="py-6 px-4">
                       <span className="inline-flex items-center">
                         <span className="w-2 h-2 bg-[#06a54c] group-hover:bg-[#2ee17c] rounded-full mr-2"></span>
@@ -379,12 +379,12 @@ export default function ProfileContent() {
                       {subscription.amount}
                     </p>
                   </div>
-                  <div className="flex flex-col items-end">
+                  {/* <div className="flex flex-col items-end">
                     <p className="text-sm text-[#696969] mb-1">Expiry Date</p>
                     <p className="text-[#2C2C2C] dark:text-[#FFFFFF]">
                       {subscription.expiryDate}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="flex items-center justify-between">

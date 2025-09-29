@@ -30,23 +30,32 @@ import SectionHeader from "@/components/SectionHeader";
 import ReviewTop from "@/components/ReviewTop";
 import TrackList from "@/components/TrackList";
 import PartnersSlider from "@/components/PartnersSlider";
+import ReviewSlider from "@/components/ReviewSlider";
 
 interface MusicDetailsProps {
   audioSrc: string;
   bannerImage: string;
-  albumImage:string;
-  title:string;
-  subtitle:string;
-  albumInfo:string;
-  platformLogo:string
+  albumImage: string;
+  title: string;
+  subtitle: string;
+  albumInfo: string;
+  platformLogo: string;
 }
 
-export default function MusicView({ audioSrc, bannerImage,albumImage,title,subtitle,albumInfo,platformLogo }: MusicDetailsProps) {
-  const router=useRouter();
-  
-  const onViewMoreClick = () =>{
-      router.push('/viewMore');
-  }
+export default function MusicView({
+  audioSrc,
+  bannerImage,
+  albumImage,
+  title,
+  subtitle,
+  albumInfo,
+  platformLogo,
+}: MusicDetailsProps) {
+  const router = useRouter();
+
+  const onViewMoreClick = () => {
+    router.push("/viewMore");
+  };
 
   return (
     <>
@@ -63,21 +72,27 @@ export default function MusicView({ audioSrc, bannerImage,albumImage,title,subti
         {/* Trending Section */}
         <main className="bg-[#F2F2F2] dark:bg-[#141414] py-2 px-2 md:px-4 lg:px-6 xl:px-6">
           <div className="pt-6 pb-2">
-              <TrackList title="tracklist"/>
+            <TrackList heading="tracklist" title="Way Up" subtitle="Savara" />
           </div>
-          
-          <section className="pb-0 ">
-            <SectionHeader  viewButton={true} title="partners" route="/partners"/>
 
-            <PartnersSlider />
-          </section>
           <section className="">
-            <SectionHeader  viewButton={true} title="top ranked music" route="/music"/>
-            <MusicSlider/>
+            <SectionHeader
+              viewButton={true}
+              title="similar albums"
+              route="/music"
+            />
+            <MusicSlider />
           </section>
-          <section className="">
-            <SectionHeader  viewButton={true} title="albums" route="/music"/>
-            <MusicSlider/>
+          <section>
+            <RatingsComponent />
+          </section>
+          <section>
+            <SectionHeader
+              viewButton={true}
+              title="user reviews"
+              route={"/viewMore/ContentReview"}
+            />
+            <ReviewSlider />
           </section>
         </main>
       </div>

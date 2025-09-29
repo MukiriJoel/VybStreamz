@@ -37,7 +37,17 @@ export default function MovieView(){
   };
   return (
     <>
-      <VybzVideoPlayer videoSrc = "/videos/MofayaTrailer.mp4"/>
+      <VybzVideoPlayer 
+      title="mofaya"
+      hasCast={true} 
+      videoSrc = "/videos/MofayaTrailer.mp4"
+      description="A young woman moves in with her boyfriend for a fresh start—only
+              to get pulled into a dangerous world of secrets, crime, and
+              betrayal. Set in modern Kenya, Mo-Faya is a gritty drama where
+              every choice sparks more fire."
+      platformLogo="/logos/bazeLg.png"
+      bannerImage="/images/mofaya.png"
+      />
       {/* Trending Section */}
       <main className="bg-[#F2F2F2] dark:bg-[#141414] px-2 md:px-4 lg:px-6">
         <section className=" pb-3 pt-8 ">
