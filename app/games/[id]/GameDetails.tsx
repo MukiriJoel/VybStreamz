@@ -59,8 +59,8 @@ return(
       />
       
       {/* Trending Section */}
-      <main className="bg-[#F2F2F2] pt-4 dark:bg-[#141414]">
-        <section className="px-2 md:px-4 lg:px-6 xl:px-6">
+      <main className="bg-[#F2F2F2] pt-4 dark:bg-[#141414] px-2 md:px-4 lg:px-6 xl:px-6">
+        <section className="pb-3 pt-8">
           <SectionHeader  viewButton={true}
             title="similar games"
             route="/games"
