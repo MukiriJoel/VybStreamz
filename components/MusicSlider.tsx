@@ -11,6 +11,7 @@ const MusicSlider = () => {
   }
   
   const onMusicClick = (id:any) =>{
+    
     Router.push(`/music/${id}`)
   }
 
